@@ -23,6 +23,8 @@
         <%= f.input :readiness, label: "Le vin, est-il prêt ?", collection: ["Trop jeune", "Peut être bu maintenant, mais potentiel de vieillissement", "A boire maintenant, ne gagnerait rien à vieillir", "Trop vieux"] %>
         <%= f.input :readiness, label: "Notez l'équilibre du vin ?", collection: 0..20 %>
         <%= f.input :description, label: "Description", as: :text %>
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %>
         <div class="text-center"><span class="flex padded-top padded-bot"><%= f.button :submit, "#{@submit_label}", class: "btn btn-primary" %></span></div>
       <% end %>
     </div>

@@ -38,6 +38,6 @@ class TastingsController < ApplicationController
     params.require(:tasting).permit(:eye_color, :nose_condition, :nose_intensity,
       :nose_development, :nose_quality, :palate_sweetness, :palate_acidity,
       :palate_tanin, :palate_alcohol, :palate_body, :flavour_intensity,
-      :palate_finish, :palate_quality, :readiness, :balance, :description)
+      :palate_finish, :palate_quality, :readiness, :balance, :description, :photo, :photo_cache)
   end
 end
