@@ -3,13 +3,13 @@
     <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
       <%= simple_form_for(@tasting) do |f| %>
         <h2>L'oeil</h2>
-        <%= f.input :eye_color, label: "Couleur" %>
+        <%= f.input :eye_color, label: "Couleur", collection: ["Jaune vert", "Jaune citron", "Jaune or", "Violacé", "Rubis", "Grenat"] %>
         <%= f.input :eye_intensity, label: "Intensité" %>
         <h2>Le nez</h2>
-        <%= f.input :nose_condition, label: "Conditions" %>
+        <%= f.input :nose_condition, label: "Conditions", collection: ["Nettes", "Défaut?"] %>
         <%= f.input :nose_intensity, label: "Intensité" %>
-        <%= f.input :nose_development, label: "Dévelopement" %>
-        <%= f.input :nose_quality, label: "Qualité du nez" %>
+        <%= f.input :nose_development, label: "Dévelopement", collection: ["jeune", "en cours d’évolution", "totalement évolué", "fatigué/trop vieux"] %>
+        <%= f.input :nose_quality, label: "Qualité du nez", collection: 0..20 %>
         <h2>Le palais</h2>
         <%= f.input :palate_sweetness, label: "Douceur" %>
         <%= f.input :palate_acidity, label: "Acidité" %>
@@ -17,11 +17,11 @@
         <%= f.input :palate_alcohol, label: "Alcool" %>
         <%= f.input :palate_body, label: "Corps" %>
         <%= f.input :flavour_intensity, label: "Intensité des arômes" %>
-        <%= f.input :palate_finish, label: "Longueur en secondes" %>
-        <%= f.input :palate_quality, label: "Qualité du palais" %>
+        <%= f.input :palate_finish, label: "Longueur en secondes", collection: 0..20 %>
+        <%= f.input :palate_quality, label: "Qualité du palais", collection: 0..20 %>
         <h2>Ensemble de la dégustation</h2>
-        <%= f.input :readiness, label: "Le vin, est-il prêt ?" %>
-        <%= f.input :readiness, label: "Le vin, est-il équilibré ?" %>
+        <%= f.input :readiness, label: "Le vin, est-il prêt ?", collection: ["Trop jeune", "Peut être bu maintenant, mais potentiel de vieillissement", "A boire maintenant, ne gagnerait rien à vieillir", "Trop vieux"] %>
+        <%= f.input :readiness, label: "Notez l'équilibre du vin ?", collection: 0..20 %>
         <%= f.input :description, label: "Description", as: :text %>
         <div class="text-center"><span class="flex padded-top padded-bot"><%= f.button :submit, "#{@submit_label}", class: "btn btn-primary" %></span></div>
       <% end %>

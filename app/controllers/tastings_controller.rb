@@ -11,6 +11,17 @@ class TastingsController < ApplicationController
   end
 
   def create
+    @tasting = Tasting.new(tasting_params)
+    @tasting.user = current_user
+    @submit_label = "Ajouter une dégustation"
+    authorize @tasting
+    if @tasting.save
+      flash[:notice] = "Dégustation créée"
+      redirect_to root_path
+    else
+      flash[:alert] = "Ça a planté, mec!"
+      render :new
+    end
   end
 
   def edit
