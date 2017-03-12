@@ -18,7 +18,11 @@
                   <%= link_to 'éditer', edit_estate_path(estate) %>
                 <% end %>
               </td>
-              <td><%= link_to 'supprimer', estate, method: :delete, data: { confirm: "Etes-vous sûr ?" } %></td>
+              <td>
+                <% if policy(estate).destroy? %>
+                  <%= link_to 'supprimer', estate, method: :delete, data: { confirm: "Etes-vous sûr ?" } %>
+                <% end %>
+              </td>
             </tr>
           <% end %>
         </tbody>
