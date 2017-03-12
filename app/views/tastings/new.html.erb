@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+      <%= simple_form_for(@tasting) do |f| %>
+        <h2>L'oeil</h2>
+        <%= f.input :eye_color, label: "Couleur" %>
+        <%= f.input :eye_intensity, label: "Intensité" %>
+        <h2>Le nez</h2>
+        <%= f.input :nose_condition, label: "Conditions" %>
+        <%= f.input :nose_intensity, label: "Intensité" %>
+        <%= f.input :nose_development, label: "Dévelopement" %>
+        <%= f.input :nose_quality, label: "Qualité du nez" %>
+        <h2>Le palais</h2>
+        <%= f.input :palate_sweetness, label: "Douceur" %>
+        <%= f.input :palate_acidity, label: "Acidité" %>
+        <%= f.input :palate_tanin, label: "Tanins" %>
+        <%= f.input :palate_alcohol, label: "Alcool" %>
+        <%= f.input :palate_body, label: "Corps" %>
+        <%= f.input :flavour_intensity, label: "Intensité des arômes" %>
+        <%= f.input :palate_finish, label: "Longueur en secondes" %>
+        <%= f.input :palate_quality, label: "Qualité du palais" %>
+        <h2>Ensemble de la dégustation</h2>
+        <%= f.input :readiness, label: "Le vin, est-il prêt ?" %>
+        <%= f.input :readiness, label: "Le vin, est-il équilibré ?" %>
+        <%= f.input :description, label: "Description", as: :text %>
+        <div class="text-center"><span class="flex padded-top padded-bot"><%= f.button :submit, "#{@submit_label}", class: "btn btn-primary" %></span></div>
+      <% end %>
+    </div>
+  </div>
+</div>
