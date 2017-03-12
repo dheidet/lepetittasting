@@ -1,2 +1,38 @@
-<h1>Tastings#index</h1>
-<p>Find me in app/views/tastings/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+      <table>
+        <thead>
+          <tr>
+            <th>Index</th>
+            <th>Photo</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @tastings.each do |tasting| %>
+            <tr>
+              <td><%= tasting.id %></td>
+              <!-- <td><%= tasting.description %></td> -->
+              <td>
+                <% if tasting.photo.url != nil %>
+                  <%= image_tag tasting.photo.url(:small) %></td>
+                <% end %>
+              <td>
+                <% if policy(tasting).edit? %>
+                  <%= link_to 'éditer', edit_tasting_path(tasting) %>
+                <% end %>
+              </td>
+              <td>
+                <% if policy(tasting).destroy? %>
+                  <%= link_to 'supprimer', tasting, method: :delete, data: { confirm: "Etes-vous sûr ?" } %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <p><%= link_to 'Ajouter une dégustation', new_tasting_path %></p>
+    </div>
+  </div>
+</div>

@@ -3,7 +3,6 @@ class EstatesController < ApplicationController
 
   def index
     @estates = policy_scope(Estate).order(created_at: :desc)
-    # authorize @estates
   end
 
   def new

@@ -25,9 +25,23 @@ class TastingsController < ApplicationController
   end
 
   def edit
+    @tasting = Tasting.find(params[:id])
+    @submit_label = "Modifier la dégustation"
+    authorize @tasting
   end
 
   def update
+    @tasting = Tasting.find(params[:id])
+    @submit_label = "Modifier la dégustation"
+    @tasting.update(tasting_params)
+    authorize @tasting
+    if @tasting.save
+      flash[:notice] = "Update ok!!"
+      redirect_to tastings_path
+    else
+      flash[:alert] = "Mais c'est pas bien rempli, tout ça!!"
+      render :edit
+    end
   end
 
   def destroy
