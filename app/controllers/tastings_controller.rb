@@ -17,7 +17,7 @@ class TastingsController < ApplicationController
     authorize @tasting
     if @tasting.save
       flash[:notice] = "Dégustation créée"
-      redirect_to root_path
+      redirect_to tastings_path
     else
       flash[:alert] = "Ça a planté, mec!"
       render :new
@@ -45,6 +45,10 @@ class TastingsController < ApplicationController
   end
 
   def destroy
+    @tasting = Tasting.find(params[:id])
+    @tasting.delete
+    authorize @tasting
+    redirect_to tastings_path
   end
 
   private
