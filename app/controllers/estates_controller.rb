@@ -1,19 +1,22 @@
 class EstatesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :new, :create, :edit, :update]
+  skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    @estates = Estate.all
-    authorize @estates
+    @estates = policy_scope(Estate).order(created_at: :desc)
+    # authorize @estates
   end
 
   def new
     @estate = Estate.new
+    @estate.user = current_user
     @submit_label = "Ajouter le domaine"
     authorize @estate
   end
 
   def create
     @estate = Estate.new(estate_params)
+    @estate.user = current_user
+    @submit_label = "Ajouter le domaine"
     authorize @estate
     if @estate.save
       flash[:notice] = "Domaine créée"
@@ -37,15 +40,22 @@ class EstatesController < ApplicationController
     authorize @estate
     if @estate.save
       flash[:notice] = "Update ok!!"
-      redirect_to root_path
+      redirect_to estates_path
     else
       flash[:alert] = "Mais c'est pas bien rempli, tout ça!!"
       render :edit
     end
   end
 
+  def destroy
+    @estate = Estate.find(params[:id])
+    @estate.delete
+    authorize @estate
+    redirect_to estates_path
+  end
+
   private
   def estate_params
-    params.require(:estate).permit(:name, :mark, :description)
+    params.require(:estate).permit(:name, :mark, :description, :user_id)
   end
 end

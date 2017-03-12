@@ -2,6 +2,6 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
-  resources :estates, only: [:index, :new, :create, :edit, :update]
+  resources :estates
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
