@@ -14,6 +14,7 @@
             <tr>
               <td><%= tasting.id %></td>
               <!-- <td><%= tasting.description %></td> -->
+              <td><%= tasting.wine.name %></td>
               <td>
                 <% if tasting.photo.url != nil %>
                   <%= image_tag tasting.photo.url(:small) %></td>
