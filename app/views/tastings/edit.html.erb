@@ -7,16 +7,16 @@
         <%= f.input :eye_intensity, label: "Intensité" %>
         <h2>Le nez</h2>
         <%= f.input :nose_condition, label: "Conditions", collection: ["Nettes", "Défaut?"] %>
-        <%= f.input :nose_intensity, label: "Intensité" %>
+        <%= f.input :nose_intensity, label: "Intensité", collection: 1..5 %>
         <%= f.input :nose_development, label: "Dévelopement", collection: ["jeune", "en cours d’évolution", "totalement évolué", "fatigué/trop vieux"] %>
         <%= f.input :nose_quality, label: "Qualité du nez", collection: 0..20 %>
         <h2>Le palais</h2>
-        <%= f.input :palate_sweetness, label: "Douceur" %>
-        <%= f.input :palate_acidity, label: "Acidité" %>
-        <%= f.input :palate_tanin, label: "Tanins" %>
-        <%= f.input :palate_alcohol, label: "Alcool" %>
-        <%= f.input :palate_body, label: "Corps" %>
-        <%= f.input :flavour_intensity, label: "Intensité des arômes" %>
+        <%= f.input :palate_sweetness, label: "Douceur", collection: 0..5 %>
+        <%= f.input :palate_acidity, label: "Acidité", collection: 1..5%>
+        <%= f.input :palate_tanin, label: "Tanins", collection: 1..5 %>
+        <%= f.input :palate_alcohol, label: "Alcool", collection: 1..5 %>
+        <%= f.input :palate_body, label: "Corps", collection: 1..5 %>
+        <%= f.input :flavour_intensity, label: "Intensité des arômes", collection: 1..5 %>
         <%= f.input :palate_finish, label: "Longueur en secondes", collection: 0..20 %>
         <%= f.input :palate_quality, label: "Qualité du palais", collection: 0..20 %>
         <h2>Ensemble de la dégustation</h2>
