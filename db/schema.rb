@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170312231400) do
+ActiveRecord::Schema.define(version: 20170313074141) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,11 +77,20 @@ ActiveRecord::Schema.define(version: 20170312231400) do
     t.string   "color"
     t.integer  "mark"
     t.string   "description"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "alcohol"
+    t.string   "agricultural_mode"
+    t.boolean  "available"
+    t.integer  "price_cents"
+    t.string   "style"
+    t.boolean  "sulfites"
+    t.integer  "user_id"
     t.index ["estate_id"], name: "index_wines_on_estate_id", using: :btree
+    t.index ["user_id"], name: "index_wines_on_user_id", using: :btree
   end
 
   add_foreign_key "estates", "users"
   add_foreign_key "tastings", "users"
+  add_foreign_key "wines", "users"
 end

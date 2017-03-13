@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+      <%= simple_form_for(@wine) do |f| %>
+        <h2>Le Domaine</h2>
+          <%= f.association :estate, label: "Domaine"%>
+        <h2>Le Vin</h2>
+        <%= f.input :name, label: "Cuvée" %>
+        <%= f.input :label, label: "Appellation" %>
+        <%= f.input :vintage, label: "Millésime", start_year: Date.today.year - 90,
+          end_year: Date.today.year, discard_day: true, discard_month: true %>
+        <%= f.input :grape_variety, label: "Cépages" %>
+        <%= f.input :color, label: "Couleur", collection: ["Blanc", "Rosé", "Rouge"] %>
+        <%= f.input :style, label: "Style", collection: ["Tranquille", "Effervescent", "VDN"] %>
+        <%= f.input :mark, label: "Note", colletion: 0..20 %>
+        <%= f.input :description, as: :text, label: "Description" %>
+        <%= f.input :agricultural_mode, label: "Méthode agricole", collection: ["Conventionnelle", "Raisonnée","HVE - Haute Valeur Environnementale", "Bio", "Biodynamique"] %>
+        <%= f.input :sulfites, label: "Sulfites" %>
+        <%= f.input :price_cents, label: "Prix public" %>
+        <div class="text-center"><span class="flex padded-top padded-bot"><%= f.button :submit, "#{@submit_label}", class: "btn btn-primary" %></span></div>
+        <div class="text-center"><span class="flex padded-top padded-bot"><%= f.button :submit, "#{@submit_label_2}", class: "btn btn-primary" %></span></div>
+      <% end %>
+    </div>
+  </div>
+</div>

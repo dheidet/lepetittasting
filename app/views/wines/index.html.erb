@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+      <table>
+        <thead>
+          <tr>
+            <th>Cuvée</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @wines.each do |wine| %>
+            <tr>
+              <td><%= wine.estate.name %></td>
+              <td><%= wine.name %></td>
+              <td><%= wine.vintage.year %></td>
+              <td>
+                <% if policy(wine).edit? %>
+                  <%= link_to 'éditer', edit_wine_path(wine) %>
+                <% end %>
+              </td>
+              <td>
+                <% if policy(wine).destroy? %>
+                  <%= link_to 'supprimer', wine, method: :delete, data: { confirm: "Etes-vous sûr ?" } %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <p><%= link_to 'Ajouter un vin', new_wine_path %></p>
+    </div>
+  </div>
+</div>
