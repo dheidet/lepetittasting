@@ -4,6 +4,7 @@ class WinesController < ApplicationController
   end
   def new
     @wine = Wine.new
+    @tasting = @wine.tastings.build
     @wine.user = current_user
     @submit_label = "Ajouter ce vin"
     @submit_label_2 = "Ajouter une dégustation"
@@ -58,8 +59,25 @@ class WinesController < ApplicationController
 
 private
   def wine_params
-    params.require(:wine).permit(:name, :label, :vintage, :grape_variety, :color,
-      :color, :mark, :description, :alcohol, :agricultural_mode, :available,
-      :price_cents, :style, :sulfites, :estate_id)
+    params.require(:wine)
+      .permit(
+        :name,
+        :label,
+        :vintage,
+        :grape_variety,
+        :color,
+        :mark,
+        :description,
+        :alcohol,
+        :agricultural_mode,
+        :available,
+        :price_cents,
+        :style,
+        :sulfites,
+        :estate_id,
+        tastings_attributes: [ :id, :wine_id, :tasting_date, :taster_name,
+          :color, :sweetness, :acidity, :tannins, :alcohol, :body, :length,
+          :_destroy]
+          )
   end
 end

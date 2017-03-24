@@ -4,14 +4,16 @@ class TastingsController < ApplicationController
   end
 
   def new
-    @tasting = Tasting.new
+    @wine = Wine.find(params[:wine_id])
+    @tasting = @wine.tastings.new
     @tasting.user = current_user
     @submit_label = "Ajouter une dégustation"
     authorize @tasting
   end
 
   def create
-    @tasting = Tasting.new(tasting_params)
+    @wine = Wine.find(params[:wine_id])
+    @tasting = @wine.tastings.new(tasting_params)
     @tasting.user = current_user
     @submit_label = "Ajouter une dégustation"
     authorize @tasting

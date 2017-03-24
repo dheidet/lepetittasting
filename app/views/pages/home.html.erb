@@ -2,12 +2,39 @@
   <div class="row">
     <div class="col-xs-10 col-xs col-sm-6 col-sm">
       <h1>Dégustations</h1>
-      <p><%= link_to 'Ajouter un domaine', new_estate_path %></p>
-      <p><%= link_to 'Liste des domaines', estates_path %></p>
-      <p><%= link_to 'Ajouter un vin', new_wine_path %></p>
-      <p><%= link_to 'Liste des vins', wines_path %></p>
-      <p><%= link_to 'Ajouter une dégustation', new_tasting_path %></p>
-      <p><%= link_to 'Liste des dégustations', tastings_path %></p>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+            <table>
+              <thead>
+                <tr>
+                  <th>Nom de domaine</th>
+                  <th colspan="3"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @estates.each do |estate| %>
+                  <tr>
+                    <td><%= estate.name %></td>
+                    <!-- <td><%= estate.description %></td> -->
+                    <td>
+                      <% if policy(estate).edit? %>
+                        <%= link_to 'éditer', edit_estate_path(estate) %>
+                      <% end %>
+                    </td>
+                    <td>
+                      <% if policy(estate).destroy? %>
+                        <%= link_to 'supprimer', estate, method: :delete, data: { confirm: "Etes-vous sûr ?" } %>
+                      <% end %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+            <p><%= link_to 'Ajouter un domaine', new_estate_path %></p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

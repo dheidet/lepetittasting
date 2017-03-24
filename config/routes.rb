@@ -1,20 +1,22 @@
 Rails.application.routes.draw do
 
-  get 'wines/new'
+  # get 'wines/new'
 
-  get 'wines/create'
+  # get 'wines/create'
 
-  get 'wines/edit'
+  # get 'wines/edit'
 
-  get 'wines/update'
+  # get 'wines/update'
 
-  get 'wines/destroy'
+  # get 'wines/destroy'
 
   devise_for :users
   root to: 'pages#home'
 
-  resources :estates
-  resources :tastings
-  resources :wines
+  resources :estates do
+    resources :wines do
+      resources :tastings
+    end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

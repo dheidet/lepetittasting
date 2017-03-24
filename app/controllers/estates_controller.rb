@@ -8,6 +8,8 @@ class EstatesController < ApplicationController
   def new
     @estate = Estate.new
     @estate.user = current_user
+    @wine = @estate.wines.build
+    @tasting = @wine.tastings.build
     @submit_label = "Ajouter le domaine"
     authorize @estate
   end
@@ -16,6 +18,7 @@ class EstatesController < ApplicationController
     @estate = Estate.new(estate_params)
     @estate.user = current_user
     @submit_label = "Ajouter le domaine"
+    @estate.save
     authorize @estate
     if @estate.save
       flash[:notice] = "Domaine créée"
@@ -24,6 +27,7 @@ class EstatesController < ApplicationController
       flash[:alert] = "Ça a planté, mec!"
       render :new
     end
+    raise
   end
 
   def edit
@@ -55,6 +59,21 @@ class EstatesController < ApplicationController
 
   private
   def estate_params
-    params.require(:estate).permit(:name, :mark, :description, :user_id)
+    params.require(:estate).permit(
+        :id,
+        :name,
+        :mark,
+        :description,
+        :user_id,
+        wines_attributes: [:id, :name, :label, :vintage, :grape_variety, :color,
+        :style, :mark, :description, :agricultural_mode,
+        :sulfite, :price_cents, :estate_id, :user_id, :_destroy,
+        tastings_attributes: [
+          :eye_color, :nose_condition, :nose_intensity,
+          :nose_development, :nose_quality, :palate_sweetness, :palate_acidity,
+          :palate_tanin, :palate_alcohol, :palate_body, :flavour_intensity,
+          :palate_finish, :palate_quality, :readiness, :balance, :description,
+          :photo, :photo_cache, :wine_id, :user_id, :_destroy
+          ]])
   end
 end
