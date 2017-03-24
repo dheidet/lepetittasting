@@ -1,5 +1,6 @@
 <div class="wrapper wrapper-lightyellow" id="home-acs-section">
   <div class="flexgrid-container text-center">
+    <p><%= link_to 'Ajouter un domaine', new_estate_path, class: "rg-btn rg-btn-success" %></p>
     <h2 class="text-center">Les Domaines</h2>
     <div class="flexgrid-flexbox">
       <% @estates.each do |estate| %>
@@ -22,6 +23,5 @@
         </div>
       <% end %>
     </div>
-  <p><%= link_to 'Ajouter un domaine', new_estate_path, class: "rg-btn rg-btn-success" %></p>
   </div>
 </div>

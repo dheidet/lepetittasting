@@ -15,7 +15,7 @@
   <%= f.input :price_cents, label: "Prix public" %>
   <h1 class="text-center">La Dégustation</h1>
   <%= f.simple_fields_for :tastings do |tasting| %>
-    <%= render 'tasting_fields', f: tasting %>
+    <%= render 'shared/tasting_fields', f: tasting %>
   <% end %>
 </br>
 </fieldset>
