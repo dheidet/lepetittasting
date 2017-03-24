@@ -2,147 +2,175 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
-.show-winecard {
-  display: flex;
-  align-items: center;
-  min-height: 100%;
-  @media (max-width: 770px) {
-    height: 300px;
+
+.pages-home .banner-content {
+  h1 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 10;
   }
-  @media (min-width: 771px) {
-    height: 350px;
-  }
-  .box-content {
-    flex: 0 0 auto;
-    p {
-      font-weight: 300;
+  .backgrounded {
+    &:before {
+      content: '';
+      background-color: #ba160b;
+      height: 46px;
+      width: 100%;
+      position: absolute;
+      top: 2px;
+      left: 0;
+      z-index: -1;
     }
-    ul {
-      font-family: $header-font;
-      li {
-        margin-bottom: 10px;
+  }
+  .banner-message {
+    margin: 30px auto;
+    p {
+      font-size: 26px;
+      margin: 0;
+      span {
+        font-weight: 600;
+        position: relative;
+        z-index: 10;
+        margin: 0 3px;
+        &:before {
+          content: '';
+          background-color: #ba160b;
+          height: 20px;
+          width: 104%;
+          position: absolute;
+          top: 3px;
+          left: -2%;
+          z-index: -1;
+        }
       }
     }
   }
 }
-.show-wc-img {
-  flex: 0 35%;
-  height: 100%;
-  > img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
-.show-wc-description {
-  flex: 1;
-  height: 100%;
-  background-color: white;
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-}
-.show-wc-descr-shortdescription {
-  margin-bottom: 20px;
-  > div {
-    color: $rg-orange;
-  }
-  p {
-    font-size: 16px;
-    color: $rg-red;
-    margin-bottom: 0;
-    font-weight: 300;
-  }
-}
-.show-wc-descr-winedesignation {
-  flex: 0 auto;
-  margin-bottom: 20px;
-}
-.show-wc-descr-wd-name {
-  font-family: $header-font;
-  font-weight: 600;
-  /* pour les petits smartphones */
-  @media(max-width: 410px) {
-    font-size: 16px;
-  }
-  /* pour les grands smartphones */
-  @media(min-width: 411px) {
-    font-size: 18px;
-  }
-  /* pour les tablettes et plus */
-  @media(min-width: 767px) {
+// le bouton d'action de la banner :
+.home-btn-banner {
+  &:focus {
+    background-color: $rg-red;
+    border-color: $rg-red;
+    text-decoration: none;
+    color: white;
     font-size: 20px;
   }
-  p {
-    margin: 0;
-    &:nth-child(3) {
-      font-weight: 400;
-      margin-bottom: 10px;
-    }
-  }
-}
-.show-wc-descr-wd-appellation {
-  font-family: $header-font;
-  font-size: 20px;
-  font-style: italic;
-  @media(max-width: 767px) {
-    font-size: 14px;
-  }
-}
-
-$show-pc-vol-popover-width: 200px;
-.show-wc-descr-shortdescription {
-  .rg-popo-bottom {
-    left: calc(50% - #{$show-pc-vol-popover-width}/2);
-    > .rg-popo {
-      width: $show-pc-vol-popover-width;
-      flex: 1;
-      font-size: 14px;
-      font-weight: 300;
-      color: $rg-darkgray;
-    }
-  }
-}
-
-$show-wc-cat-popover-width: 250px;
-.show-wc-descr-cat-pastille {
-  flex: 0 auto;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  @media(max-width: 767px) {
-    width: 30px;
-    height: 30px;
-  }
-  @media(min-width: 768px) {
-    width: 40px;
-    height: 40px;
-  }
-  i {
+  &:hover {
+    background-color: transparent;
     color: white;
-    flex: 0 0 auto;
-    margin-right: 2px;
   }
-  .rg-popo-top {
-    left: calc(50% - #{$show-wc-cat-popover-width}/2);
-    > .rg-popo {
-      width: $show-wc-cat-popover-width;
-      h5 {
-        margin: 5px 0 10px;
-        font-size: 18px;
+}
+
+#home-commentcamarche-section {
+  .flexgrid-flexbox {
+    align-items: flex-start;
+  }
+  .flexgrid-item {
+    @media (max-width: 450px) {
+      flex: 0 0 49%;
+    }
+    @media (min-width: 451px) and (max-width: 799px) {
+      flex: 0 0 49%;
+    }
+    @media (min-width: 800px) {
+      flex: 0 0 31%;
+    }
+  }
+}
+
+#home-acs-section, #home-caviste-section {
+  .flexgrid-flexbox {
+    justify-content: center;
+  }
+}
+
+// customisation des flexbox_tabs :
+$home-zoom-tab-height: 70px;
+
+.pages-home .tabs-flexitem {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  @media (min-width: 992px) {
+    min-height: calc(#{$home-zoom-tab-height} * 4 + 30px);
+  }
+  > .tab {
+    min-height: 60px;
+    margin-bottom: 10px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    h3 {
+      font-size: 18px;
+      margin: 0;
+      flex: 1;
+    }
+    &:nth-child(1) {
+      background-color: $rg-blue;
+    }
+    &:nth-child(2) {
+      background-color: $rg-green;
+    }
+    &:nth-child(3) {
+      background-color: $rg-yellow;
+    }
+    &:nth-child(4) {
+      background-color: $rg-red;
+    }
+    /* pour les petits smartphones */
+    @media (max-width: 410px) {
+      flex: 0 49%;
+      padding: 0 10px;
+    }
+    /* pour les grands smartphones */
+    @media (min-width: 411px) and (max-width: 766px) {
+      flex: 0 49%;
+    }
+    /* pour les tablettes */
+    @media (min-width: 767px) and (max-width: 899px) {
+      flex: 0 24%;
+      h3 {
+        font-size: 17px;
       }
-      p {
-        font-size: 15px;
-        font-weight: 300;
+    }
+    @media (min-width: 900px) and (max-width: 991px) {
+      flex: 0 24%;
+    }
+    @media (min-width: 992px) and (max-width: 1180px) {
+      width: 100%;
+      height: $home-zoom-tab-height;
+      margin-bottom: 0;
+    }
+    /* pour les laptop */
+    @media (min-width: 1181px) {
+      width: 100%;
+      height: $home-zoom-tab-height;
+      margin-bottom: 0;
+      h3 {
+        font-size: 20px;
       }
-      .link-in-text {
-        font-size: 12px;
-        display: block;
-        margin-top: 20px;
-      }
+    }
+  }
+}
+.pages-home .tab-contents-flexitem {
+  > .tab-content {
+    height: 100%;
+    border-radius: 2px;
+    padding: 20px;
+    &:nth-child(1) {
+      background-color: $rg-transparent-blue;
+    }
+    &:nth-child(2) {
+      background-color: $rg-transparent-green;
+    }
+    &:nth-child(3) {
+      background-color: $rg-transparent-yellow;
+    }
+    &:nth-child(4) {
+      background-color: $rg-transparent-red;
     }
   }
 }

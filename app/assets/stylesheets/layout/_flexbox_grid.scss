@@ -1,0 +1,106 @@
+/* container pour les grilles responsives en flex (avec du padding left et right) */
+.flexgrid-container {
+  /* pour les petits smartphones */
+  @media(max-width: 359px) {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  /* jusqu'à l'iphone 6 couché */
+  @media(min-width: 360px) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  /* à partir de l'iphone 6 couché */
+  @media(min-width: 667px) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  /* à partir de l'ipad */
+  @media(min-width: 768px) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  /* à partir de laptop */
+  @media(min-width: 992px) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+.flexgrid-container-large-padding {
+  /* pour les petits smartphones */
+  @media(max-width: 359px) {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  /* jusqu'à l'iphone 6 couché */
+  @media(min-width: 360px) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  /* à partir de l'iphone 6 couché */
+  @media(min-width: 667px) {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  /* à partir de l'ipad */
+  @media(min-width: 768px) {
+    padding-left: 75px;
+    padding-right: 75px;
+  }
+  /* à partir de laptop */
+  @media(min-width: 992px) {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+/* flexbox des grilles responsives en flex */
+.flexgrid-flexbox {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+/* grilles responsives en flex */
+// xs = small devise,
+// xm = bog mobile paysage,
+// sm = tablettes,
+// md = laptop.
+.flexgrid-item-xs1-xm1-sm1-md2 {
+  margin-bottom: 15px;
+  /* jusqu'à l'iphone 6 couché */
+  @media(max-width: 666px) {
+    flex: 0 0 95%;
+  }
+  /* à partir de l'iphone 6 couché */
+  @media(min-width: 667px) {
+    flex: 0 0 90%;
+  }
+  /* à partir de l'ipad */
+  @media(min-width: 768px) {
+    flex: 0 0 80%;
+  }
+  /* à partir de laptop */
+  @media(min-width: 992px) {
+    flex: 0 0 48%;
+  }
+}
+.flexgrid-item-xs1-xm2-sm2-md3 {
+  /* jusqu'à l'iphone 6 couché */
+  @media(max-width: 666px) {
+    flex: 0 0 90%;
+  }
+  /* à partir de l'iphone 6 couché */
+  @media(min-width: 667px) {
+    flex: 0 0 45%;
+  }
+  /* à partir de l'ipad */
+  @media(min-width: 768px) {
+    flex: 0 0 45%;
+  }
+  /* à partir de laptop */
+  @media(min-width: 992px) {
+    flex: 0 0 30%;
+  }
+}

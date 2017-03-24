@@ -3,7 +3,8 @@ class WinesController < ApplicationController
     @wines = policy_scope(Wine).order(created_at: :desc)
   end
   def new
-    @wine = Wine.new
+    @estate = Estate.find(params[:estate_id])
+    @wine = @estate.wines.new
     @tasting = @wine.tastings.build
     @wine.user = current_user
     @submit_label = "Ajouter ce vin"
@@ -12,18 +13,15 @@ class WinesController < ApplicationController
   end
 
   def create
-    @wine = Wine.new(wine_params)
+    @estate = Estate.find(params[:estate_id])
+    @wine = @estate.wines.new(wine_params)
     @wine.user = current_user
     @submit_label = "Ajouter ce vin"
     @submit_label_2 = "Ajouter une dégustation"
     authorize @wine
     if @wine.save
       flash[:notice] = "Vin créé"
-      if params[:commit] == @submit_label
-        redirect_to wines_path
-      else
-        redirect_to new_tasting_path
-      end
+      redirect_to estate_path(@estate)
     else
       flash[:alert] = "Ça a planté, mec!"
       render :new
@@ -75,9 +73,12 @@ private
         :style,
         :sulfites,
         :estate_id,
-        tastings_attributes: [ :id, :wine_id, :tasting_date, :taster_name,
-          :color, :sweetness, :acidity, :tannins, :alcohol, :body, :length,
-          :_destroy]
-          )
+        tastings_attributes: [
+          :eye_color, :nose_condition, :nose_intensity,
+          :nose_development, :nose_quality, :palate_sweetness, :palate_acidity,
+          :palate_tanin, :palate_alcohol, :palate_body, :flavour_intensity,
+          :palate_finish, :palate_quality, :readiness, :balance, :description,
+          :photo, :photo_cache, :wine_id, :user_id, :_destroy
+          ])
   end
 end

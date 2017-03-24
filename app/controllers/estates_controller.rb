@@ -5,6 +5,12 @@ class EstatesController < ApplicationController
     @estates = policy_scope(Estate).order(created_at: :desc)
   end
 
+  def show
+    @estate = Estate.find(params[:id])
+    @wines = @estate.wines
+    authorize @estate
+  end
+
   def new
     @estate = Estate.new
     @estate.user = current_user
@@ -27,7 +33,6 @@ class EstatesController < ApplicationController
       flash[:alert] = "Ça a planté, mec!"
       render :new
     end
-    raise
   end
 
   def edit

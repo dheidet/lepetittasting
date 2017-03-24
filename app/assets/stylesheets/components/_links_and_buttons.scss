@@ -1,0 +1,139 @@
+a {
+  color: $rg-darkgray;
+  &:hover {
+    text-decoration: none;
+    color: $rg-red;
+  }
+}
+.link-in-text {
+  color: $rg-red;
+  &:hover {
+    text-decoration: none;
+    color: $rg-blue;
+  }
+}
+.go-back-link {
+  display: block;
+}
+.rg-btn {
+  display: inline-block;
+  margin: 4px;
+  border-radius: 1px;
+  border: 3px solid;
+  padding: 7px 14px;
+  color: white;
+  font-family: $header-font;
+  &:hover {
+    background-color: white;
+  }
+}
+.rg-btn-primary {
+  background-color: $rg-blue;
+  border-color: $rg-blue;
+  &:hover {
+    color: $rg-blue;
+  }
+  &:focus {
+    outline: none;
+    color: white;
+    background-color: $rg-blue;
+    text-decoration: none;
+  }
+}
+.rg-btn-success {
+  background-color: $rg-green;
+  border-color: $rg-green;
+  &:hover {
+    color: $rg-green;
+  }
+  &:focus {
+    outline: none;
+    color: white;
+    background-color: $rg-green;
+    text-decoration: none;
+  }
+}
+.rg-btn-info {
+  background-color: $rg-yellow;
+  border-color: $rg-yellow;
+  &:hover {
+    color: $rg-yellow;
+  }
+  &:focus {
+    outline: none;
+    color: white;
+    background-color: $rg-yellow;
+    text-decoration: none;
+  }
+}
+.rg-btn-danger {
+  background-color: $rg-red;
+  border-color: $rg-red;
+  &:hover {
+    color: $rg-red;
+  }
+  &:focus {
+    outline: none;
+    color: white;
+    background-color: $rg-red;
+    text-decoration: none;
+  }
+}
+.rg-btn-warning {
+  background-color: $rg-orange;
+  border-color: $rg-orange;
+  &:hover {
+    color: $rg-orange;
+  }
+  &:focus {
+    outline: none;
+    color: white;
+    background-color: $rg-orange;
+    text-decoration: none;
+  }
+}
+.rg-btn-lightyellow {
+  background-color: $rg-lightyellow;
+  border-color: $rg-darkgray;
+  color: $rg-darkgray;
+  &:hover {
+    background-color: $rg-darkgray;
+    color: $rg-lightyellow;
+  }
+  &:focus {
+    outline: none;
+    color: white;
+    background-color: $rg-lightyellow;
+    text-decoration: none;
+  }
+}
+.rg-btn-transparent {
+  background-color: transparent;
+  border-color: $rg-darkgray;
+  color: $rg-darkgray;
+  &:hover {
+    background-color: $rg-darkgray;
+    color: $rg-lightyellow;
+  }
+  &:focus {
+    outline: none;
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+  }
+}
+.rg-btn-darkgray {
+  background-color: $rg-darkgray;
+  border-color: $rg-darkgray;
+  color: $rg-lightyellow;
+  &:hover {
+    background-color: transparent;
+    color: $rg-darkgray;
+  }
+  &:focus {
+    outline: none;
+    color: white;
+    background-color: $rg-darkgray;
+    text-decoration: none;
+  }
+}

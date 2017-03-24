@@ -1,0 +1,30 @@
+<div class="wrapper">
+  <div class="flexgrid-container text-center">
+    <h2 class="text-center"><%= @estate.name %></h2>
+    <div class="flexgrid-flexbox">
+      <% @wines.each do |wine| %>
+        <%= link_to edit_estate_wine_path(wine) do %>
+          <div class="flexgrid-item-xs1-xm1-sm1-md2">
+            <div class="achat-card-small card-shadow">
+              <div class="acs-img">
+                <%# if wine.photo.url != nil %>
+                  <%#= image_tag wine.photo.url(:standard) %>
+                <%# else %>
+                  <%= image_tag "wine-bottle.jpeg" %>
+                <%# end %>
+              </div>
+              <div class="acs-description text-center">
+                <div class="acs-wine-name"><%= wine.name %></div>
+                <% @tastings = wine.tastings %>
+                <% @tastings.each do |tasting| %>
+                  <div class="acs-appellation"><%= tasting.nose_quality %></div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <p><%= link_to 'Ajouter un vin', new_estate_wine_path(@estate, Wine.new) , class: "rg-btn rg-btn-success" %></p>
+  </div>
+</div>

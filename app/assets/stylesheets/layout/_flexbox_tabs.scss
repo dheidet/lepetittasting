@@ -1,0 +1,39 @@
+.tabs-flexbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* pour les petits smartphones */
+  @media (max-width: 410px) {
+    padding: 10px;
+  }
+  /* du petit smartphone au laptop */
+  @media (min-width:411px) and (max-width: 991px) {
+    padding: 15px;
+  }
+  /* à partir de laptop */
+  @media (min-width: 992px) {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 20px;
+  }
+}
+.tabs-flexitem {
+  flex: 0 auto;
+  /* jusqu'à laptop */
+  @media (max-width: 991px) {
+    flex-direction: row;
+  }
+  /* à partir de laptop */
+  @media (min-width: 992px) {
+    flex-direction: column;
+    margin-right: 10px;
+    min-width: 20%;
+    max-width: 20%;
+    min-height: 300px;
+  }
+}
+.tab-contents-flexitem {
+  flex: 1 auto;
+  align-self: stretch;
+}
