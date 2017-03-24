@@ -14,6 +14,21 @@
               </thead>
               <tbody>
                 <% @estates.each do |estate| %>
+                  <div class="sale-card card-shadow">
+                    <%= link_to estate_path(estate) do %>
+                      <div class="sale-link"></div>
+                    <div class="sale-card-etiquette text-center">
+                      <div>
+                        <div class="sale-card-estate">
+                          <%= estate.name %>
+                        </div>
+                        <div class="sale-card-cuvee">
+                          <%= estate.description %>
+                        </div>
+                      </div>
+                    </div>
+                    <% end %>
+                  </div>
                   <tr>
                     <td><%= estate.name %></td>
                     <!-- <td><%= estate.description %></td> -->
@@ -38,3 +53,4 @@
     </div>
   </div>
 </div>
+

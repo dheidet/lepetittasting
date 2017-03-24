@@ -2,3 +2,147 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+.show-winecard {
+  display: flex;
+  align-items: center;
+  min-height: 100%;
+  @media (max-width: 770px) {
+    height: 300px;
+  }
+  @media (min-width: 771px) {
+    height: 350px;
+  }
+  .box-content {
+    flex: 0 0 auto;
+    p {
+      font-weight: 300;
+    }
+    ul {
+      font-family: $header-font;
+      li {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+.show-wc-img {
+  flex: 0 35%;
+  height: 100%;
+  > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.show-wc-description {
+  flex: 1;
+  height: 100%;
+  background-color: white;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.show-wc-descr-shortdescription {
+  margin-bottom: 20px;
+  > div {
+    color: $rg-orange;
+  }
+  p {
+    font-size: 16px;
+    color: $rg-red;
+    margin-bottom: 0;
+    font-weight: 300;
+  }
+}
+.show-wc-descr-winedesignation {
+  flex: 0 auto;
+  margin-bottom: 20px;
+}
+.show-wc-descr-wd-name {
+  font-family: $header-font;
+  font-weight: 600;
+  /* pour les petits smartphones */
+  @media(max-width: 410px) {
+    font-size: 16px;
+  }
+  /* pour les grands smartphones */
+  @media(min-width: 411px) {
+    font-size: 18px;
+  }
+  /* pour les tablettes et plus */
+  @media(min-width: 767px) {
+    font-size: 20px;
+  }
+  p {
+    margin: 0;
+    &:nth-child(3) {
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+  }
+}
+.show-wc-descr-wd-appellation {
+  font-family: $header-font;
+  font-size: 20px;
+  font-style: italic;
+  @media(max-width: 767px) {
+    font-size: 14px;
+  }
+}
+
+$show-pc-vol-popover-width: 200px;
+.show-wc-descr-shortdescription {
+  .rg-popo-bottom {
+    left: calc(50% - #{$show-pc-vol-popover-width}/2);
+    > .rg-popo {
+      width: $show-pc-vol-popover-width;
+      flex: 1;
+      font-size: 14px;
+      font-weight: 300;
+      color: $rg-darkgray;
+    }
+  }
+}
+
+$show-wc-cat-popover-width: 250px;
+.show-wc-descr-cat-pastille {
+  flex: 0 auto;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  @media(max-width: 767px) {
+    width: 30px;
+    height: 30px;
+  }
+  @media(min-width: 768px) {
+    width: 40px;
+    height: 40px;
+  }
+  i {
+    color: white;
+    flex: 0 0 auto;
+    margin-right: 2px;
+  }
+  .rg-popo-top {
+    left: calc(50% - #{$show-wc-cat-popover-width}/2);
+    > .rg-popo {
+      width: $show-wc-cat-popover-width;
+      h5 {
+        margin: 5px 0 10px;
+        font-size: 18px;
+      }
+      p {
+        font-size: 15px;
+        font-weight: 300;
+      }
+      .link-in-text {
+        font-size: 12px;
+        display: block;
+        margin-top: 20px;
+      }
+    }
+  }
+}
