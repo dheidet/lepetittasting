@@ -28,7 +28,7 @@ class EstatesController < ApplicationController
     authorize @estate
     if @estate.save
       flash[:notice] = "Domaine créée"
-      redirect_to estates_path
+      redirect_to estate_path(@estate)
     else
       flash[:alert] = "Ça a planté, mec!"
       render :new
