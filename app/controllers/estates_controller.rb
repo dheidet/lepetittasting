@@ -71,14 +71,14 @@ class EstatesController < ApplicationController
         :description,
         :user_id,
         wines_attributes: [:id, :name, :label, :vintage, :grape_variety, :color,
-        :style, :mark, :description, :agricultural_mode,
-        :sulfite, :price_cents, :estate_id, :user_id, :_destroy,
+        :style, :mark, :description, :agricultural_mode, :sulfite, :price_cents,
+        :estate_id, :user_id, :photo, :photo_cache, :_destroy,
         tastings_attributes: [
           :eye_color, :nose_condition, :nose_intensity,
           :nose_development, :nose_quality, :palate_sweetness, :palate_acidity,
           :palate_tanin, :palate_alcohol, :palate_body, :flavour_intensity,
           :palate_finish, :palate_quality, :readiness, :balance, :description,
-          :photo, :photo_cache, :wine_id, :user_id, :_destroy
+          :wine_id, :user_id, :_destroy
           ]])
   end
 end

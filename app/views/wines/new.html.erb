@@ -5,22 +5,8 @@
         <fieldset>
           <%= f.error_notification %>
           <h1 class="text-center">Le Vin</h1>
-          <%= f.input :name, label: "Cuvée" %>
-          <%= f.input :label, label: "Appellation" %>
-          <%= f.input :vintage, label: "Millésime", start_year: Date.today.year - 90,
-            end_year: Date.today.year, discard_day: true, discard_month: true %>
-          <%= f.input :grape_variety, label: "Cépages" %>
-          <%= f.input :color, label: "Couleur", collection: ["Blanc", "Rosé", "Rouge"] %>
-          <%= f.input :style, label: "Style", collection: ["Tranquille", "Effervescent", "VDN"] %>
-          <%= f.input :mark, label: "Note", colletion: 0..20 %>
-          <%= f.input :description, as: :text, label: "Description" %>
-          <%= f.input :agricultural_mode, label: "Méthode agricole", collection: ["Conventionnelle", "Raisonnée","HVE - Haute Valeur Environnementale", "Bio", "Biodynamique"] %>
-          <%= f.input :sulfites, label: "Sulfites" %>
-          <%= f.input :price_cents, label: "Prix public" %>
-          <h1 class="text-center">La Dégustation</h1>
-          <%= f.simple_fields_for :tastings do |tasting| %>
-            <%= render 'shared/tasting_fields', f: tasting %>
-          <% end %>
+          <%= render 'shared/wine_fields', f: f %>
+
           <div class="text-center"><span class="flex padded-top padded-bot"><%= f.button :submit, "#{@submit_label}", class: "btn btn-primary" %></span></div>
         </fieldset>
       <% end %>
