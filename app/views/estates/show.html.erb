@@ -21,11 +21,21 @@
                 <div class="acs-wine-name"><%= wine.description %></div>
                 <% @tastings = wine.tastings %>
                 <% @tastings.each do |tasting| %>
-                  <div class="acs-appellation"><%= tasting.nose_quality %></div>
-                  <div class="acs-appellation"><%= tasting.palate_finish %></div>
-                  <div class="acs-appellation"><%= tasting.palate_quality %></div>
-                  <div class="acs-appellation"><%= tasting.balance %></div>
-                  <div class="acs-appellation"><%= tasting.description %></div>
+                  <% if tasting.nose_quality != nil %>
+                    <div class="acs-appellation">nez : <%= tasting.nose_quality %></div>
+                  <% end %>
+                  <% if tasting.palate_finish != nil %>
+                    <div class="acs-appellation">finale : <%= tasting.palate_finish %></div>
+                  <% end %>
+                  <% if tasting.palate_quality != nil %>
+                    <div class="acs-appellation">palais : <%= tasting.palate_quality %></div>
+                  <% end %>
+                  <% if tasting.balance != nil %>
+                    <div class="acs-appellation">équilibre : <%= tasting.balance %></div>
+                  <% end %>
+                  <% if tasting.description != nil %>
+                    <div class="acs-appellation">note : <%= tasting.description %></div>
+                  <% end %>
                 <% end %>
               </div>
             </div>
