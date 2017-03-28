@@ -64,6 +64,7 @@ private
         :vintage,
         :grape_variety,
         :color,
+        :alcohol,
         :mark,
         :description,
         :alcohol,

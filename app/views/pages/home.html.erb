@@ -23,5 +23,41 @@
         </div>
       <% end %>
     </div>
+    <h2 class="text-center">Les Vins</h2>
+    <div class="flexgrid-flexbox">
+      <% @wines.each do |wine| %>
+        <div class="flexgrid-item">
+          <div class="sale-card card-shadow">
+            <%= link_to estate_wine_path(wine.estate, wine) do %>
+              <div class="sale-link"></div>
+            <% end %>
+            <div class="sale-card-picture">
+              <% if wine.photo.url != nil %>
+                <%= image_tag wine.photo.url(crop: :fill) %>
+              <% else %>
+                <%= image_tag "wine-bottle.jpeg" %>
+              <% end %>
+            </div>
+
+            <div class="sale-card-etiquette text-center">
+              <div>
+                <div class="sale-card-estate">
+                  <%= wine.estate.name %>
+                </div>
+                <div class="sale-card-cuvee">
+                  <%= wine.name %>
+                </div>
+                <div class="sale-card-vintage">
+                  <%= wine.vintage.year %>
+                </div>
+                <div class="sale-card-label">
+                  <%= wine.label %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

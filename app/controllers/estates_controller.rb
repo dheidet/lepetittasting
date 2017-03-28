@@ -70,7 +70,7 @@ class EstatesController < ApplicationController
         :mark,
         :description,
         :user_id,
-        wines_attributes: [:id, :name, :label, :vintage, :grape_variety, :color,
+        wines_attributes: [:id, :name, :label, :alcohol, :vintage, :grape_variety, :color,
         :style, :mark, :description, :agricultural_mode, :sulfite, :price_cents,
         :estate_id, :user_id, :photo, :photo_cache, :_destroy,
         tastings_attributes: [
