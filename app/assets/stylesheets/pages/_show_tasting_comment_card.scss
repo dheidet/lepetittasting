@@ -1,0 +1,89 @@
+.show-tasting-comment-card {
+  padding: 20px;
+  // height: 100%;
+  background-color: $rg-transparent-orange;
+  .white-circle {
+    border-radius: 50%;
+    background-color: white;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    img {
+      flex: 1;
+      height: 50px;
+    }
+  }
+  .tasting_description {
+    font-weight: 300;
+    font-size: 18px;
+  }
+}
+#oeil {
+  position: relative;
+  img {
+    position: absolute;
+    top: 14px;
+    left: 6px;
+    width: 55px;
+  }
+}
+#nez {
+  position: relative;
+  img {
+    position: absolute;
+    top: 8px;
+    left: -3px;
+    width: 65px;
+  }
+}
+#bouche {
+  position: relative;
+  img {
+    position: absolute;
+    top: 13px;
+    left: 6px;
+    width: 57px;
+  }
+}
+#show-wine-description-card, #show-wine-description-card-on-sale, #show-estate-card {
+  > div {
+    background-color: $rg-transparent-green !important;
+  }
+}
+@media (min-width: 560px) and (max-width: 999px) {
+  #show-wine-description-card > div > div {
+    display: flex;
+    align-items: center;
+    .white-circle {
+      flex: 0 0 auto;
+      margin: 0 20px 0 0 !important;
+    }
+    .tasting-description {
+      flex: 1;
+      text-align: left;
+    }
+  }
+}
+@media (min-width: 1000px) {
+  .sales-show #show-wine-description-card, #show-wine-description-card-on-sale {
+    > div > div {
+      display: flex;
+      align-items: center;
+      .white-circle {
+        flex: 0 0 auto;
+        margin: 0 20px 0 0 !important;
+      }
+      .tasting-description {
+        flex: 1;
+        text-align: left;
+      }
+    }
+
+  }
+}
+#show-estate-card img {
+  height: 40px !important;
+}

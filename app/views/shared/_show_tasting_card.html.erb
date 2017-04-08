@@ -1,0 +1,71 @@
+<div class="show-tasting-card">
+  <div class="show-tasting-characteristics">
+    <div class="show-tasting-group">
+      <div class="show-tasting-group-label">Couleur</div>
+      <div class="show-tasting-group-value" id="show-tasting-group-color">
+        <span><%= tasting.eye_color %></span>
+      </div>
+    </div>
+    <div class="show-tasting-group">
+      <div class="show-tasting-group-label has-popover">
+        <span>Douceur<i class="fa fa-info-circle" aria-hidden="true"></i></span>
+        <div class="rg-popo-bottom">
+          <div class="rg-popo hidden">
+            Plus le vin est doux, plus il est sucré.
+          </div>
+        </div>
+      </div>
+      <div class="show-tasting-group-value">
+        <div class="scale-background">
+          <div id="sweetness-value" class="scale-value" style="width: <%= tasting.palate_sweetness.to_f / 5 * 100 %>%"></div>
+        </div>
+      </div>
+    </div>
+    <div class="show-tasting-group">
+      <div class="show-tasting-group-label has-popover">
+        <span>Fraicheur<i class="fa fa-info-circle" aria-hidden="true"></i></span>
+        <div class="rg-popo-bottom">
+          <div class="rg-popo hidden">
+            La fraicheur du vin, c'est son acidité. Et l'acidité, c'est ce qui fait saliver !
+          </div>
+        </div>
+      </div>
+      <div class="show-tasting-group-value">
+        <div class="scale-background">
+          <div id="acidity-value" class="scale-value" style="width: <%= tasting.palate_acidity.to_f / 5 * 100 %>%"></div>
+        </div>
+      </div>
+    </div>
+    <div class="show-tasting-group">
+      <div class="show-tasting-group-label has-popover">
+        <span>Tanins<i class="fa fa-info-circle" aria-hidden="true"></i></span>
+        <div class="rg-popo-bottom">
+          <div class="rg-popo hidden">
+            Les tanins, c'est astringent : ça assèche les gencives.
+          </div>
+        </div>
+      </div>
+      <div class="show-tasting-group-value">
+        <div class="scale-background">
+          <div id="tanins-value" class="scale-value" style="width: <%= tasting.palate_tanin.to_f / 5 * 100 %>%"></div>
+        </div>
+      </div>
+    </div>
+    <div class="show-tasting-group">
+      <div class="show-tasting-group-label">Alcool</div>
+      <div class="show-tasting-group-value">
+        <div class="scale-background">
+          <div id="alcohol-value" class="scale-value" style="width: <%= ( tasting.palate_alcohol.to_f - 11 ) / 4 * 100 %>%"></div>
+        </div>
+      </div>
+    </div>
+    <div class="show-tasting-group">
+      <div class="show-tasting-group-label">Puissance</div>
+      <div class="show-tasting-group-value">
+        <div class="scale-background">
+          <div id="body-value" class="scale-value" style="width: <%= tasting.palate_body.to_f / 5 * 100 %>%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

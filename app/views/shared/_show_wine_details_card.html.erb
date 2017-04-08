@@ -1,0 +1,20 @@
+<div class="show-wine-details-card text-left">
+  <div class="show-wd-group">
+    <div class="show-wd-groupe-label">Cépages</div>
+    <div class="show-wd-groupe-value">
+      <span><%= wine.grape_variety %></span>
+    </div>
+  </div>
+  <div class="show-wd-group">
+    <div class="show-wd-groupe-label">Culture</div>
+    <div class="show-wd-groupe-value">
+      <span><%= wine.agricultural_mode %></span>
+    </div>
+  </div>
+  <div class="show-wd-group">
+    <div class="show-wd-groupe-label">Sulfite</div>
+    <div class="show-wd-groupe-value">
+      <span><%= wine.sulfites ? "oui" : "non" %></span>
+    </div>
+  </div>
+</div>

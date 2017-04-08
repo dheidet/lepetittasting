@@ -11,7 +11,10 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <%= yield %>
+    <div class="page-content-wrapper <%= "#{controller_name}-#{action_name}" %>">
+      <%= content_for?(:user_space) ? yield(:user_space) : yield %>
+      <%#= yield %>
+    </div>
     <%= javascript_include_tag 'application' %>
   </body>
 </html>

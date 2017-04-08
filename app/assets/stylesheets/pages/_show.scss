@@ -1,0 +1,336 @@
+.wines-show {
+  .flexgrid-flexbox {
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: wrap;
+  }
+  .flexgrid-item {
+    margin: 5px;
+    display: flex;
+    align-items: stretch;
+    > div {
+      flex: 1;
+    }
+  }
+  .sale-card-picture, .sale-card-etiquette {
+    border: 1px solid $rg-very-transparent-gray;
+  }
+  .sale-card-etiquette {
+    margin-top: -1px;
+  }
+}
+.box-show-id-card {
+  .modal-dialog {
+    width: 95%;
+    .modal-header {
+      border: none;
+      position: relative;
+      z-index: 10;
+    }
+    .modal-body {
+      margin-top: -50px;
+      padding: 30px;
+
+    }
+    .wrapper, .flexgrid-container {
+      padding: 0 !important;
+    }
+  }
+}
+// show d'une vente de vin :
+  @media (max-width: 559px) {
+    #show-id-card {
+      order: 1
+    }
+    #show-price-card {
+      order: 2;
+    }
+    #show-tasting-card {
+      order: 3;
+    }
+    #show-wine-description-card {
+      order: 4;
+    }
+    #show-tasting-conditions-card, #show-eye-card, #show-nose-card, #show-palate-card {
+      order: 5;
+    }
+    #show-wine-details-card, #show-estate-card {
+      order: 6;
+    }
+    #show-id-card, #show-tasting-card, #show-tasting-conditions-card,
+    #show-wine-description-card, #show-eye-card, #show-nose-card,
+    #show-palate-card, #show-wine-details-card, #show-estate-card {
+      flex: 1 0 98%;
+    }
+    #show-price-card, #show-tasting-card-on-sale, #show-tasting-conditions-card-on-sale {
+      flex: 1 0 98%;
+    }
+  }
+  // les smart-phone en paysage et les tablettes :
+  @media (min-width: 560px) and (max-width: 999px) {
+    #show-id-card {
+      order: 1
+    }
+    #show-price-card {
+      order: 2;
+    }
+    #show-tasting-card {
+      order: 3;
+    }
+    #show-wine-description-card {
+      order: 4;
+    }
+    #show-tasting-conditions-card, #show-eye-card, #show-nose-card, #show-palate-card {
+      order: 5;
+    }
+    #show-wine-details-card, #show-estate-card {
+      order: 6;
+    }
+    #show-id-card, #show-price-card, #show-tasting-card-on-sale,
+    #show-wine-description-card-on-sale, #show-tasting-conditions-card, #show-eye-card,
+    #show-nose-card, #show-palate-card, #show-wine-details-card, #show-estate-card {
+      flex: 1 0 48%
+    }
+    #show-wine-description-card {
+      flex: 1 0 98%;
+    }
+  }
+  // les laptops :
+  @media (min-width: 1000px) {
+    #show-id-card {
+      order: 1;
+    }
+    #show-tasting-card {
+      order: 2;
+    }
+    #show-price-card {
+      order: 3;
+    }
+    #show-wine-description-card {
+      order: 4;
+    }
+    #show-tasting-conditions-card, #show-eye-card, #show-nose-card, #show-palate-card {
+      order: 5;
+    }
+    #show-wine-details-card, #show-estate-card {
+      order: 6;
+    }
+    #show-id-card, #show-tasting-card, #show-tasting-card,
+    #show-wine-description-card, #show-price-card {
+      flex: 1 0 32%;
+    }
+    #show-wine-description-card {
+      flex: 1 0 98%;
+    }
+    #show-tasting-conditions-card {
+      flex: 1 0 32%;
+    }
+    #show-eye-card, #show-nose-card, #show-palate-card {
+      flex: 1 0 15%;
+    }
+    #show-palate-card {
+      flex: 1 0 25%;
+    }
+    #show-wine-details-card, #show-estate-card {
+      flex: 1 0 48%;
+    }
+  }
+
+
+
+  // // les smart-phone en portrait :
+  // @media (max-width: 559px) {
+  //   #show-id-card {
+  //     order: 1;
+  //   }
+  //   #show-price-card {
+  //     order: 2;
+  //   }
+  //   #show-tasting-card {
+  //     order: 3;
+  //   }
+  //   #show-tasting-conditions-card, #show-wine-description-card, #show-eye-card,
+  //   #show-nose-card, #show-palate-card, #show-wine-details-card, #show-estate-card {
+  //     order: 4;
+  //   }
+  //   .sales-show .flexgrid-item {
+  //     flex: 1 0 98%;
+  //   }
+  // }
+  // // les smart-phone en paysage :
+  // @media (min-width: 560px) and (max-width: 999px) {
+  //   #show-id-card {
+  //     order: 1;
+  //   }
+  //   #show-price-card {
+  //     order: 2;
+  //   }
+  //   #show-tasting-card {
+  //     order: 3;
+  //   }
+  //   #show-tasting-conditions-card, #show-wine-description-card, #show-eye-card,
+  //   #show-nose-card, #show-palate-card, #show-wine-details-card, #show-estate-card {
+  //     order: 4;
+  //   }
+  //   #show-id-card, #show-price-card, #show-tasting-card, #show-tasting-conditions-card,
+  //   #show-wine-description-card, #show-eye-card, #show-nose-card, #show-palate-card,
+  //   #show-wine-details-card, #show-estate-card {
+  //     flex: 1 0 48%;
+  //   }
+  // }
+  // // les laptops :
+  // @media (min-width: 1000px) {
+  //   #show-id-card, #show-tasting-card, #show-price-card {
+  //     flex: 1 0 32%;
+  //   }
+  //   #show-tasting-conditions-card {
+  //     flex: 1 0 98%;
+  //   }
+  //   #show-wine-description-card, #show-eye-card, #show-nose-card, #show-palate-card {
+  //     flex: 1 0 24%;
+  //   }
+  //   #show-wine-details-card, #show-estate-card {
+  //     flex: 1 0 49%;
+  //   }
+  // }
+
+// show d'une vente de box :
+  // les smart-phone en portrait :
+  @media (max-width: 709px) {
+    #box-show-id-card, #box-show-price-card, #box-show-description-card {
+      flex: 1 0 98%;
+    }
+  }
+  // les smart-phone en paysage et les tablettes :
+  @media (min-width: 710px) and (max-width: 999px) {
+    #box-show-id-card {
+      flex: 1 1 50%;
+      // max-width: 60%;
+    }
+    #box-show-price-card {
+      flex: 1 0 180px;
+    }
+    #box-show-description-card {
+      flex: 1 0 98%;
+    }
+  }
+  // les laptops :
+  @media (min-width: 1000px) {
+    #box-show-id-card {
+      order: 1;
+      flex: 1 1 30%;
+      // max-width: 40%;
+    }
+    #box-show-price-card {
+      order: 3;
+      flex: 1 0 180px;
+    }
+    #box-show-description-card {
+      order: 2;
+      flex: 1 1 30%;
+      // max-width: 35%;
+    }
+  }
+
+// show d'un vin :
+.wines-show, .modal-content {
+  @media (max-width: 559px) {
+    #show-id-card {
+      order: 1
+    }
+    #show-price-card {
+      order: 2;
+    }
+    #show-tasting-card-on-sale {
+      order: 3;
+    }
+    #show-wine-description-card-on-sale {
+      order: 4;
+    }
+    #show-tasting-conditions-card, #show-eye-card, #show-nose-card, #show-palate-card {
+      order: 5;
+    }
+    #show-wine-details-card, #show-estate-card {
+      order: 6;
+    }
+    #show-id-card, #show-tasting-card, #show-tasting-conditions-card,
+    #show-wine-description-card, #show-eye-card, #show-nose-card,
+    #show-palate-card, #show-wine-details-card, #show-estate-card {
+      flex: 1 0 98%;
+    }
+    #show-price-card, #show-tasting-card-on-sale, #show-tasting-conditions-card-on-sale {
+      flex: 1 0 98%;
+    }
+  }
+  // les smart-phone en paysage et les tablettes :
+  @media (min-width: 560px) and (max-width: 999px) {
+    #show-id-card {
+      order: 1
+    }
+    #show-price-card {
+      order: 2;
+    }
+    #show-tasting-card-on-sale {
+      order: 3;
+    }
+    #show-wine-description-card-on-sale {
+      order: 4;
+    }
+    #show-tasting-conditions-card, #show-eye-card, #show-nose-card, #show-palate-card {
+      order: 5;
+    }
+    #show-wine-details-card, #show-estate-card {
+      order: 6;
+    }
+    #show-id-card, #show-price-card, #show-tasting-card-on-sale,
+    #show-wine-description-card-on-sale, #show-tasting-conditions-card, #show-eye-card,
+    #show-nose-card, #show-palate-card, #show-wine-details-card, #show-estate-card {
+      flex: 1 0 48%
+    }
+    #show-wine-description-card {
+      flex: 1 0 98%;
+    }
+  }
+  // les laptops :
+  @media (min-width: 1000px) {
+    #show-id-card {
+      order: 1;
+    }
+    #show-tasting-card, #show-tasting-card-on-sale {
+      order: 2;
+    }
+    #show-price-card, #show-wine-description-card {
+      order: 3;
+    }
+    #show-wine-description-card-on-sale {
+      order: 4;
+    }
+    #show-tasting-conditions-card, #show-eye-card, #show-nose-card, #show-palate-card {
+      order: 5;
+    }
+    #show-wine-details-card, #show-estate-card {
+      order: 6;
+    }
+    #show-id-card, #show-tasting-card, #show-tasting-card-on-sale,
+    #show-wine-description-card, #show-price-card {
+      flex: 1 0 32%;
+    }
+    #show-wine-description-card-on-sale {
+      flex: 1 0 98%;
+    }
+    #show-tasting-conditions-card {
+      flex: 1 0 32%;
+    }
+    #show-eye-card, #show-nose-card, #show-palate-card {
+      flex: 1 0 15%;
+    }
+    #show-palate-card {
+      flex: 1 0 25%;
+    }
+    #show-wine-details-card, #show-estate-card {
+      flex: 1 0 48%;
+    }
+  }
+}
+
+

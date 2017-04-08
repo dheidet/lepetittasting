@@ -1,0 +1,49 @@
+<div class="wrapper">
+  <div class="flexgrid-container text-center">
+    <div class="flexgrid-flexbox">
+      <div class="flexgrid-item" id="show-id-card">
+        <%= render "shared/show_id_card", wine: @wine %>
+      </div>
+      <% if @wine.tastings != [] %>
+        <% @wine.tastings.each do |tasting| %>
+          <div class="flexgrid-item" id="show-tasting-card">
+            <%= render "shared/show_tasting_card", tasting: tasting %>
+          </div>
+          <div class="flexgrid-item" id="show-tasting-conditions-card">
+            <%#= render "shared/show_tasting_conditions_card", wine: @wine %>
+          </div>
+          <div class="flexgrid-item" id="show-wine-description-card">
+            <%= render "shared/show_tasting_comment", icon: "sommelier", description: h(tasting.description).gsub(/\n/, '<br/>').html_safe %>
+          </div>
+          <div class="flexgrid-item" id="show-eye-card">
+            <%#= render "shared/show_tasting_comment", icon: "oeil", description: h(tasting.
+              eye_color).gsub(/\n/, '<br/>').html_safe %>
+          </div>
+          <div class="flexgrid-item" id="show-nose-card">
+            <%#= render "shared/show_tasting_comment", icon: "nez", description: h(tasting.
+              nose).gsub(/\n/, '<br/>').html_safe %>
+          </div>
+          <div class="flexgrid-item" id="show-palate-card">
+            <%#= render "shared/show_tasting_comment", icon: "bouche", description: h(@wine.
+              palate).gsub(/\n/, '<br/>').html_safe %>
+          </div>
+        <% end %>
+      <% end %>
+      <div class="flexgrid-item" id="show-wine-details-card">
+        <%= render "shared/show_wine_details_card", wine: @wine %>
+      </div>
+      <div class="flexgrid-item" id="show-estate-card">
+        <%= render "shared/show_tasting_comment", icon: "estate", description: h(@wine.
+          estate.description).gsub(/\n/, '<br/>').html_safe %>
+      </div>
+    </div>
+  </div>
+</div>
+    <div>
+      <%#= social_share_button_tag("Restons Grappés | #{@wine.label} #{@wine.vintage} - #{@wine.estate.name} - #{@wine.name}", desc: "Prenez le contrôle de ce que vous buvez ! Profitez de notre sélection de pépites. Faites du bruit et vous pourrez les déguster ! Livraison gratuite sur Paris et proche") %>
+    </div>
+
+
+<%= content_for(:meta_title, "Restons Grappés | #{@wine.label} #{@wine.vintage} - #{@wine.estate.name} - #{@wine.name}") %>
+<%= content_for(:meta_description, "Prenez le contrôle de ce que vous buvez !") %>
+<%= content_for(:meta_image, @wine.photo.url(:standard)) %>

@@ -1,0 +1,113 @@
+#show-tasting-card, #show-tasting-card-on-sale {
+  background-color: $rg-lightyellow;
+  display: flex;
+  flex-direction: column;
+  .sale-card-category {
+    max-width: 200px;
+    flex: 0 0 auto;
+    border-radius: 5px;
+    padding: 4px 8px;
+    margin: 0 auto 20px;
+    z-index: 20;
+    .cat-name {
+      font-family: $header-font;
+      font-size: 14px;
+      color: white;
+      i {
+        margin-left: 4px;
+      }
+    }
+    $show-category-popover-width: 300px;
+    .rg-popo-bottom {
+      left: calc(50% - #{$show-category-popover-width}/2);
+      > .rg-popo {
+        width: $show-category-popover-width;
+        h5 {
+          margin: 5px 0 10px;
+          font-size: 18px;
+        }
+        p {
+          font-size: 14px;
+          font-weight: 300;
+        }
+        .link-in-text {
+          font-size: 12px;
+          display: block;
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+  .show-tasting-characteristics {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .show-tasting-group {
+      flex: 0 0 auto;
+    }
+  }
+}
+.show-tasting-card {
+  padding: 20px;
+  height: 100%;
+  .scale-background {
+    height: 15px;
+    width: 100%;
+    min-width: 95px;
+    background-color: $rg-transparent-red;
+  }
+  .scale-value {
+    height: 100%;
+    width: 50%;
+    background-color: $rg-red;
+  }
+}
+$show-tasting-label-width: 115px;
+.show-tasting-group {
+  display: flex;
+  align-items: stretch;
+  font-family: $header-font;
+  margin: 4px 10px;
+  .rg-popo-bottom {
+    left: calc(50% - #{$show-tasting-label-width}/2);
+    > .rg-popo {
+      width: $show-tasting-label-width;
+      padding: 5px;
+      font-family: $base-font;
+      font-size: 13px;
+      font-weight: 300;
+      color: $rg-darkgray;
+    }
+  }
+}
+.show-tasting-group-label {
+  flex: 0 0 $show-tasting-label-width;
+  background-color: $rg-yellow;
+  color: white;
+  text-align: center;
+  padding: 9px;
+  margin-right: 5px;
+  > span i {
+    margin-left: 4px;
+  }
+}
+.show-tasting-group-value {
+  flex: 1 auto;
+  background-color: white;
+  font-weight: 400;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  span {
+    flex: 1;
+  }
+}
+#show-tasting-group-color {
+  flex: 0 auto;
+}
+@media (min-width: 560px) and (max-width: 999px) {
+  .show-tasting-card {
+    padding: 20px 10px;
+  }
+}

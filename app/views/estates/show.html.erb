@@ -4,7 +4,7 @@
     <p><%= link_to 'Ajouter un vin', new_estate_wine_path(@estate, Wine.new) , class: "rg-btn rg-btn-success" %></p>
     <div class="flexgrid-flexbox">
       <% @wines.each do |wine| %>
-        <%= link_to edit_estate_wine_path(wine) do %>
+        <%= link_to estate_wine_path(wine) do %>
           <div class="flexgrid-item-xs1-xm1-sm1-md2">
             <div class="achat-card-small card-shadow">
               <div class="acs-img">

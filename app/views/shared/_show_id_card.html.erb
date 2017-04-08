@@ -1,0 +1,25 @@
+<div class="show-id-card">
+  <div class="sale-card-picture">
+    <% if wine.photo.url != nil %>
+      <%= image_tag wine.photo.url(:standard) %>
+    <% else %>
+      <%= image_tag "wine-bottle.jpeg" %>
+    <% end %>
+  </div>
+  <div class="sale-card-etiquette text-center">
+    <div>
+      <div class="sale-card-vintage">
+        <%= wine.vintage %>
+      </div>
+      <div class="sale-card-estate">
+        <%= wine.estate.name %>
+      </div>
+      <div class="sale-card-cuvee">
+        <%= wine.name %>
+      </div>
+      <div class="sale-card-label">
+        <%= wine.label %>
+      </div>
+    </div>
+  </div>
+</div>

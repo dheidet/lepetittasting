@@ -28,6 +28,11 @@ class WinesController < ApplicationController
     end
   end
 
+  def show
+    @wine = Wine.find(params[:id])
+    authorize @wine
+  end
+
   def edit
     @wine = Wine.find(params[:id])
     @submit_label = "Modifier le vin"

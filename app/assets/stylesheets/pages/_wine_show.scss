@@ -1,0 +1,95 @@
+/* ajustement de la flexbox de la grille */
+.wines-show {
+  .flexgrid-flexbox {
+    justify-content: space-between !important;
+    &:nth-child(1) {
+      .flexgrid-item:nth-child(1) {
+        @media(max-width: 649px) {
+          flex: 0 100%;
+        }
+        @media(min-width: 650px) {
+          flex: 0 59%;
+        }
+      }
+      .flexgrid-item:nth-child(2) {
+        @media(max-width: 649px) {
+          flex: 0 100%;
+        }
+        @media(min-width: 650px) {
+          flex: 0 39%;
+        }
+      }
+      .flexgrid-item:nth-child(3) {
+        flex: 0 100%;
+      }
+      .flexgrid-item:nth-child(4) {
+        flex: 0 100%;
+        .feedback-btn {
+          width: 100%;
+          margin: 0;
+        }
+      }
+    }
+    &:nth-child(2) {
+      .flexgrid-item:nth-child(1) {
+        @media(max-width: 649px) {
+          flex: 0 100%;
+        }
+        @media(min-width: 650px) {
+          flex: 0 49%;
+          order: 1;
+        }
+        @media(min-width: 1000px) {
+          flex: 0 30%;
+        }
+      }
+      .flexgrid-item:nth-child(2) {
+        @media(max-width: 649px) {
+          flex: 0 100%;
+        }
+        @media(min-width: 650px) {
+          flex: 0 100%;
+          order: 3;
+        }
+        @media(min-width: 1000px) {
+          flex: 0 39%;
+          order: 2;
+        }
+      }
+      .flexgrid-item:nth-child(3) {
+        @media(max-width: 649px) {
+          flex: 0 100%;
+        }
+        @media(min-width: 650px) {
+          flex: 0 49%;
+          order: 2;
+        }
+        @media(min-width: 1000px) {
+          flex: 0 29%;
+          order: 3;
+        }
+      }
+    }
+    &:nth-child(3) {
+      .flexgrid-item:nth-child(1) {
+        flex: 0 100%;
+      }
+    }
+    &:nth-child(4) {
+      .flexgrid-item:nth-child(1) {
+        flex: 0 100%;
+      }
+    }
+  }
+  .flexgrid-item {
+    margin-bottom: 15px;
+  }
+}
+.feedback-btn {
+  background-color: white !important;
+  color: $rg-blue !important;
+  &:hover {
+    background-color: $rg-blue !important;
+    color: white !important;
+  }
+}

@@ -1,0 +1,57 @@
+.show-wine-details-card {
+  background-color: $rg-lightyellow;
+  // height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  .show-wd-group {
+    flex: 0 0 auto;
+    display: flex;
+    font-family: $header-font;
+    margin: 4px 10px;
+  }
+}
+$show-wd-label-width: 130px;
+.show-wd-group {
+  display: flex;
+  align-items: stretch;
+  font-family: $header-font;
+  margin: 4px 6px;
+  .rg-popo-top {
+    left: calc(50% - #{$show-wd-label-width}/2);
+    > .rg-popo {
+      width: $show-wd-label-width;
+      font-family: $base-font;
+      font-size: 13px;
+      font-weight: 300;
+      color: $rg-darkgray;
+    }
+  }
+}
+.show-wd-groupe-label {
+  flex: 1 0 auto;
+  max-width: $show-wd-label-width;
+  background-color: $rg-red;
+  color: white;
+  text-align: center;
+  padding: 9px;
+  margin-right: 5px;
+  > span i {
+    margin-left: 4px;
+  }
+}
+.show-wd-groupe-value {
+  flex: 0 0 auto;
+  background-color: white;
+  font-weight: 400;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  span {
+    flex: 1;
+  }
+}
+
