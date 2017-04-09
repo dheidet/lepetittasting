@@ -1,0 +1,55 @@
+<div class="show-tasting-comment-card text-center">
+  <div>
+    <div class="white-circle" id="sommelier">
+      <%= image_tag "sommelier.svg" %>
+    </div>
+    <div class="tasting-description">
+      <% unless tasting.general_mark.nil? %>
+        <div class="show-tasting-group">
+          <div class="show-tasting-group-label">Note Globale</div>
+          <div class="show-tasting-group-value"  id="show-tasting-group-mark"><%= tasting.general_mark %></div>
+        </div>
+      <% end %>
+      <div class="show-tasting-group">
+        <div class="show-tasting-group-label">Dégusté le</div>
+        <div class="show-tasting-group-value">
+          <%= tasting.created_at.strftime("%d %B %Y") %>
+        </div>
+      </div>
+      <% unless tasting.description == "" %>
+        <div class="show-tasting-group">
+          <div class="show-tasting-group-label">Général</div>
+          <div class="show-tasting-group-value">
+            <%= tasting.description %>
+          </div>
+        </div>
+      <% end %>
+      <% unless tasting.readiness.nil? %>
+        <div class="show-tasting-group">
+          <div class="show-tasting-group-label">Evolution</div>
+          <div class="show-tasting-group-value">
+            <%= tasting.readiness %>
+          </div>
+        </div>
+      <% end %>
+      <% unless tasting.stars_rating(tasting.balance).nil? %>
+        <div class="show-tasting-group">
+          <div class="show-tasting-group-label has-popover">
+            <span>Equilibre</span>
+          </div>
+          <div class="star-center">
+            <% tasting.stars_rating(tasting.balance)[0].times do %>
+              <i class="fa fa-star" aria-hidden="true"></i>
+            <% end %>
+            <% tasting.stars_rating(tasting.balance)[1].times do %>
+              <i class="fa fa-star-half-o" aria-hidden="true"></i>
+            <% end %>
+            <% tasting.stars_rating(tasting.balance)[2].times do %>
+              <i class="fa fa-star-o" aria-hidden="true"></i>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

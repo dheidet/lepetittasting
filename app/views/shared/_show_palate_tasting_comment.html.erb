@@ -1,0 +1,120 @@
+<div class="show-tasting-comment-card text-center">
+  <div>
+    <div class="white-circle" id="bouche">
+      <%= image_tag "bouche.svg" %>
+    </div>
+    <div class="tasting-description">
+      <% unless tasting.stars_rating(tasting.palate_quality).nil? %>
+        <div class="show-tasting-group">
+          <div class="star-center">
+            <% tasting.stars_rating(tasting.palate_quality)[0].times do %>
+              <i class="fa fa-star" aria-hidden="true"></i>
+            <% end %>
+            <% tasting.stars_rating(tasting.palate_quality)[1].times do %>
+              <i class="fa fa-star-half-o" aria-hidden="true"></i>
+            <% end %>
+            <% tasting.stars_rating(tasting.palate_quality)[2].times do %>
+              <i class="fa fa-star-o" aria-hidden="true"></i>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+      <% unless tasting.palate_sweetness.nil? %>
+        <div class="show-tasting-group">
+          <div class="show-tasting-group-label has-popover">
+            <span>Douceur<i class="fa fa-info-circle" aria-hidden="true"></i></span>
+            <div class="rg-popo-bottom">
+              <div class="rg-popo hidden">
+                Plus le vin est doux, plus il est sucré.
+              </div>
+            </div>
+          </div>
+          <div class="show-tasting-group-value">
+            <div class="scale-background">
+              <div id="sweetness-value" class="scale-value" style="width: <%= tasting.palate_sweetness.to_f / 5 * 100 %>%"></div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <% unless tasting.palate_acidity.nil? %>
+        <div class="show-tasting-group">
+          <div class="show-tasting-group-label has-popover">
+            <span>Fraicheur<i class="fa fa-info-circle" aria-hidden="true"></i></span>
+            <div class="rg-popo-bottom">
+              <div class="rg-popo hidden">
+                La fraicheur du vin, c'est son acidité. Et l'acidité, c'est ce qui fait saliver !
+              </div>
+            </div>
+          </div>
+          <div class="show-tasting-group-value">
+            <div class="scale-background">
+              <div id="acidity-value" class="scale-value" style="width: <%= tasting.palate_acidity.to_f / 5 * 100 %>%"></div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <% unless tasting.palate_tanin.nil? %>
+        <div class="show-tasting-group">
+          <div class="show-tasting-group-label has-popover">
+            <span>Tanins<i class="fa fa-info-circle" aria-hidden="true"></i></span>
+            <div class="rg-popo-bottom">
+              <div class="rg-popo hidden">
+                Les tanins, c'est astringent : ça assèche les gencives.
+              </div>
+            </div>
+          </div>
+          <div class="show-tasting-group-value">
+            <div class="scale-background">
+              <div id="tanins-value" class="scale-value" style="width: <%= tasting.palate_tanin.to_f / 5 * 100 %>%"></div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <% unless tasting.palate_alcohol.nil? %>
+        <div class="show-tasting-group">
+          <div class="show-tasting-group-label">Alcool</div>
+          <div class="show-tasting-group-value">
+            <div class="scale-background">
+              <div id="alcohol-value" class="scale-value" style="width: <%= ( tasting.palate_alcohol.to_f - 11 ) / 4 * 100 %>%"></div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <% unless tasting.body.nil? %>
+        <div class="show-tasting-group">
+          <div class="show-tasting-group-label">Corps</div>
+          <div class="show-tasting-group-value" id="show-tasting-group-color">
+            <span><%= tasting.body.capitalize %></span>
+          </div>
+        </div>
+      <% end %>
+      <% unless tasting.flavour_intensity.nil? %>
+        <div class="show-tasting-group">
+          <div class="show-tasting-group-label has-popover">
+            <span>Intensité<i class="fa fa-info-circle" aria-hidden="true"></i></span>
+          </div>
+          <div class="show-tasting-group-value">
+            <div class="scale-background">
+              <div id="sweetness-value" class="scale-value" style="width: <%= tasting.flavour_intensity.to_f / 5 * 100 %>%"></div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <% unless tasting.palate_finish.nil? %>
+        <div class="show-tasting-group">
+          <div class="show-tasting-group-label has-popover">
+            <span>Finale<i class="fa fa-info-circle" aria-hidden="true"></i></span>
+            <div class="rg-popo-bottom">
+              <div class="rg-popo hidden">
+                La longueur correspond au temps que dure la perception des bons arômes en bouche. L'amertume ne doit pas être comptée dans la longueur !
+              </div>
+            </div>
+          </div>
+          <div class="show-tasting-group-value" id="show-tasting-group-color">
+            <span><%= tasting.palate_finish_desc.capitalize %></span>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

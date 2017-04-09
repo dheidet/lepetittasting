@@ -83,7 +83,7 @@ $show-tasting-label-width: 115px;
 }
 .show-tasting-group-label {
   flex: 0 0 $show-tasting-label-width;
-  background-color: $rg-yellow;
+  background-color: #C4AE84;
   color: white;
   text-align: center;
   padding: 9px;
@@ -102,6 +102,10 @@ $show-tasting-label-width: 115px;
   span {
     flex: 1;
   }
+}
+#show-tasting-group-mark {
+  flex: 0 auto;
+  font-size: 28px;
 }
 #show-tasting-group-color {
   flex: 0 auto;

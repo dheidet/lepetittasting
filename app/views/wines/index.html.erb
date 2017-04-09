@@ -10,21 +10,7 @@
         </thead>
         <tbody>
           <% @wines.each do |wine| %>
-            <tr>
-              <td><%= wine.estate.name %></td>
-              <td><%= wine.name %></td>
-              <td><%= wine.vintage.year %></td>
-              <td>
-                <% if policy(wine).edit? %>
-                  <%= link_to 'éditer', edit_wine_path(wine) %>
-                <% end %>
-              </td>
-              <td>
-                <% if policy(wine).destroy? %>
-                  <%= link_to 'supprimer', wine, method: :delete, data: { confirm: "Etes-vous sûr ?" } %>
-                <% end %>
-              </td>
-            </tr>
+            <%= render "shared/show_id_card", wine: wine %>
           <% end %>
         </tbody>
       </table>

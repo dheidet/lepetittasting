@@ -1,0 +1,27 @@
+<div class="show-tasting-comment-card text-center">
+  <div>
+    <div class="white-circle" id="oeil">
+      <%= image_tag "oeil.svg" %>
+    </div>
+    <div class="tasting-description">
+      <% unless tasting.eye_color == "" %>
+        <div class="show-tasting-group">
+          <div class="show-tasting-group-label">Couleur</div>
+          <div class="show-tasting-group-value" id="show-tasting-group-color">
+            <%= tasting.eye_color %>
+          </div>
+        </div>
+      <% end %>
+      <% unless tasting.eye_intensity.nil? %>
+        <div class="show-tasting-group">
+          <div class="show-tasting-group-label">Intensité</div>
+          <div class="show-tasting-group-value">
+            <div class="scale-background">
+              <div id="sweetness-value" class="scale-value" style="width: <%= tasting.eye_intensity.to_f / 3 * 100 %>%"></div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -19,7 +19,7 @@
   <%= f.input :palate_quality, label: "Qualité du palais", collection: 0..20 %>
   <h2>Ensemble de la dégustation</h2>
   <%= f.input :readiness, label: "Le vin, est-il prêt ?", collection: ["Trop jeune", "Peut être bu maintenant, mais potentiel de vieillissement", "A boire maintenant, ne gagnerait rien à vieillir", "Trop vieux"] %>
-  <%= f.input :readiness, label: "Notez l'équilibre du vin ?", collection: 0..20 %>
+  <%= f.input :balance, label: "Notez l'équilibre du vin ?", collection: 0..20 %>
   <%= f.input :description, label: "Description", as: :text %>
 </br>
 </fieldset>

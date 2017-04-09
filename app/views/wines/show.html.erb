@@ -6,35 +6,25 @@
       </div>
       <% if @wine.tastings != [] %>
         <% @wine.tastings.each do |tasting| %>
-          <div class="flexgrid-item" id="show-tasting-card">
-            <%= render "shared/show_tasting_card", tasting: tasting %>
-          </div>
-          <div class="flexgrid-item" id="show-tasting-conditions-card">
-            <%#= render "shared/show_tasting_conditions_card", wine: @wine %>
+          <!-- <div class="flexgrid-item" id="show-tasting-card">
+            <%#= render "shared/show_tasting_card", tasting: tasting %>
+          </div> -->
+          <div class="flexgrid-item" id="show-wine-description-card">
+            <%= render "shared/show_general_tasting_comment", tasting: tasting %>
           </div>
           <div class="flexgrid-item" id="show-wine-description-card">
-            <%= render "shared/show_tasting_comment", icon: "sommelier", description: h(tasting.description).gsub(/\n/, '<br/>').html_safe %>
+            <%= render "shared/show_eye_tasting_comment", tasting: tasting %>
           </div>
-          <div class="flexgrid-item" id="show-eye-card">
-            <%#= render "shared/show_tasting_comment", icon: "oeil", description: h(tasting.
-              eye_color).gsub(/\n/, '<br/>').html_safe %>
+          <div class="flexgrid-item" id="show-wine-description-card">
+            <%= render "shared/show_nose_tasting_comment", tasting: tasting %>
           </div>
-          <div class="flexgrid-item" id="show-nose-card">
-            <%#= render "shared/show_tasting_comment", icon: "nez", description: h(tasting.
-              nose).gsub(/\n/, '<br/>').html_safe %>
-          </div>
-          <div class="flexgrid-item" id="show-palate-card">
-            <%#= render "shared/show_tasting_comment", icon: "bouche", description: h(@wine.
-              palate).gsub(/\n/, '<br/>').html_safe %>
+          <div class="flexgrid-item" id="show-wine-description-card">
+            <%= render "shared/show_palate_tasting_comment", tasting: tasting %>
           </div>
         <% end %>
       <% end %>
       <div class="flexgrid-item" id="show-wine-details-card">
         <%= render "shared/show_wine_details_card", wine: @wine %>
-      </div>
-      <div class="flexgrid-item" id="show-estate-card">
-        <%= render "shared/show_tasting_comment", icon: "estate", description: h(@wine.
-          estate.description).gsub(/\n/, '<br/>').html_safe %>
       </div>
     </div>
   </div>

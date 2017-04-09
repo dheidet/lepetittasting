@@ -1,0 +1,50 @@
+<div class="show-tasting-comment-card text-center">
+  <div>
+    <div class="white-circle" id="nez">
+      <%= image_tag "nez.svg" %>
+    </div>
+    <div class="tasting-description">
+      <% unless tasting.nose_quality.nil? %>
+        <div class="show-tasting-group">
+          <div class="star-center">
+            <% tasting.stars_rating(tasting.nose_quality)[0].times do %>
+              <i class="fa fa-star" aria-hidden="true"></i>
+            <% end %>
+            <% tasting.stars_rating(tasting.nose_quality)[1].times do %>
+              <i class="fa fa-star-half-o" aria-hidden="true"></i>
+            <% end %>
+            <% tasting.stars_rating(tasting.nose_quality)[2].times do %>
+              <i class="fa fa-star-o" aria-hidden="true"></i>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+      <% unless tasting.nose_condition == "" %>
+        <div class="show-tasting-group">
+          <div class="show-tasting-group-label">Conditions</div>
+          <div class="show-tasting-group-value" id="show-tasting-group-color">
+            <span><%= tasting.nose_condition %></span>
+          </div>
+        </div>
+      <% end %>
+      <% unless tasting.nose_development == "" %>
+        <div class="show-tasting-group">
+          <div class="show-tasting-group-label">Développement</div>
+          <div class="show-tasting-group-value" id="show-tasting-group-color">
+            <span><%= tasting.nose_development %></span>
+          </div>
+        </div>
+      <% end %>
+      <% unless tasting.nose_intensity.nil? %>
+        <div class="show-tasting-group">
+          <div class="show-tasting-group-label">Intensité</div>
+          <div class="show-tasting-group-value">
+            <div class="scale-background">
+              <div id="sweetness-value" class="scale-value" style="width: <%= tasting.nose_intensity.to_f / 5 * 100 %>%"></div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -2,6 +2,11 @@
   padding: 20px;
   // height: 100%;
   background-color: $rg-transparent-orange;
+  .star-center {
+    margin: auto;
+    font-size: 22px;
+    color: #C4AE84;
+  }
   .white-circle {
     border-radius: 50%;
     background-color: white;
@@ -19,6 +24,17 @@
   .tasting_description {
     font-weight: 300;
     font-size: 18px;
+  }
+  .scale-background {
+    height: 15px;
+    width: 100%;
+    min-width: 95px;
+    background-color: $rg-transparent-red;
+  }
+  .scale-value {
+    height: 100%;
+    width: 50%;
+    background-color: $rg-red;
   }
 }
 #oeil {
