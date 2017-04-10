@@ -3,8 +3,8 @@ class WinesController < ApplicationController
     @wines = policy_scope(Wine).order(created_at: :desc)
   end
   def new
-    @estate = Estate.find(params[:estate_id])
-    @wine = @estate.wines.new
+    @estate = params[:estate]
+    @wine = Wine.new
     @tasting = @wine.tastings.build
     @wine.user = current_user
     @submit_label = "Ajouter ce vin"
@@ -13,15 +13,14 @@ class WinesController < ApplicationController
   end
 
   def create
-    @estate = Estate.find(params[:estate_id])
-    @wine = @estate.wines.new(wine_params)
+    @wine = Wine.new(wine_params)
     @wine.user = current_user
     @submit_label = "Ajouter ce vin"
     @submit_label_2 = "Ajouter une dégustation"
     authorize @wine
     if @wine.save
       flash[:notice] = "Vin créé"
-      redirect_to estate_path(@estate)
+      redirect_to estate_path(@wine.estate)
     else
       flash[:alert] = "Ça a planté, mec!"
       render :new

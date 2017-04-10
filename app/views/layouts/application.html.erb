@@ -14,6 +14,7 @@
     <div class="page-content-wrapper <%= "#{controller_name}-#{action_name}" %>">
       <%= content_for?(:user_space) ? yield(:user_space) : yield %>
     </div>
+    <%= render 'shared/footer' %>
     <%= javascript_include_tag 'application' %>
   </body>
 </html>

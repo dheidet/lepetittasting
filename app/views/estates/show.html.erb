@@ -1,10 +1,10 @@
 <div class="wrapper">
   <div class="flexgrid-container text-center">
     <h2 class="text-center"><%= @estate.name %></h2>
-    <p><%= link_to 'Ajouter un vin', new_estate_wine_path(@estate, Wine.new) , class: "rg-btn rg-btn-success" %></p>
+    <p><%= link_to 'Ajouter un vin', new_wine_path(estate: @estate), class: "rg-btn rg-btn-success" %></p>
     <div class="flexgrid-flexbox">
       <% @wines.each do |wine| %>
-        <%= link_to estate_wine_path(wine) do %>
+        <%= link_to wine_path(wine) do %>
           <div class="flexgrid-item-xs1-xm1-sm1-md2">
             <div class="achat-card-small card-shadow">
               <div class="acs-img">

@@ -1,0 +1,315 @@
+.pages-cards {
+  .popover-section {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:last-child {
+      min-height: 300px;
+    }
+    .pastille {
+      flex: 0 0 auto;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background-color: $rg-blue;
+      margin: 0 15px;
+      &:nth-child(1), &:nth-child(2), &:nth-child(3) {
+        align-self: flex-start;
+      }
+      &:nth-child(4), &:nth-child(5), &:nth-child(6) {
+        align-self: flex-end;
+      }
+    }
+    .rectangular-div {
+      width: 100px;
+      height: 25px;
+      background-color: $rg-green;
+      align-self: flex-start;
+      position: relative;
+    }
+  }
+}
+
+/************* Les popovers *************/
+/* class de l'élément auquel le popover est rattaché */
+.has-popover {
+  position: relative;
+}
+
+.rg-popo {
+  background-color: white;
+  padding: 10px;
+  position: relative;
+  z-index: 1000;
+}
+.rg-popo-bottom, .rg-popo-bottom-left, .rg-popo-bottom-right {
+  position: absolute;
+  top: calc(90% + #{$popover-arrow-size}/2);
+  > .rg-popo {
+    box-shadow: 0px 1px 3px $rg-transparent-gray;
+    border-top: 1px solid $rg-very-transparent-gray;
+    &:before {
+      content: ' ';
+      height: $popover-arrow-size;
+      width: $popover-arrow-size;
+      position: absolute;
+      top: -8px;
+      background-color: white;
+      transform: rotate(45deg);
+      border-left: 1px solid $rg-very-transparent-gray;
+      border-top: 1px solid $rg-very-transparent-gray;
+    }
+  }
+}
+/* fonctionne avec une $popover-width définie */
+.rg-popo-bottom {
+  left: calc(50% - #{$popover-width}/2);
+  > .rg-popo {
+    width: $popover-width;
+    &:before {
+      left: calc(50% - #{$popover-arrow-size}/2);
+    }
+  }
+}
+/* fonctionne quelle que soit la width */
+.rg-popo-bottom-left {
+  right: -5px;
+  > .rg-popo {
+    &:before {
+      right: 10px;
+    }
+  }
+}
+/* fonctionne quelle que soit la width */
+.rg-popo-bottom-right {
+  left: -5px;
+  > .rg-popo {
+    &:before {
+      left: 10px;
+    }
+  }
+}
+.rg-popo-top, .rg-popo-top-left, .rg-popo-top-right {
+  position: absolute;
+  bottom: calc(90% + #{$popover-arrow-size}/2);
+  > .rg-popo {
+    box-shadow: 0px 1px 3px $rg-transparent-gray;
+    border-top: 1px solid $rg-very-transparent-gray;
+    &:after {
+      content: ' ';
+      height: $popover-arrow-size;
+      width: $popover-arrow-size;
+      position: absolute;
+      bottom: -8px;
+      background-color: white;
+      transform: rotate(45deg);
+      border-right: 1px solid $rg-very-transparent-gray;
+      border-bottom: 1px solid $rg-very-transparent-gray;
+    }
+  }
+}
+/* fonctionne avec une $popover-width définie */
+.rg-popo-top {
+  left: calc(50% - #{$popover-width}/2);
+  > .rg-popo {
+    width: $popover-width;
+    &:after {
+      left: calc(50% - #{$popover-arrow-size}/2);
+    }
+  }
+}
+/* fonctionne quelle que soit la width */
+.rg-popo-top-left {
+  right: -5px;
+  > .rg-popo {
+    &:after {
+      right: 10px;
+    }
+  }
+}
+/* fonctionne quelle que soit la width */
+.rg-popo-top-right {
+  left: -5px;
+  > .rg-popo {
+    &:after {
+      left: 10px;
+    }
+  }
+}
+.rg-popo-left, .rg-popo-left-top, .rg-popo-left-bottom {
+  position: absolute;
+  right: calc(90% + #{$popover-arrow-size}/2);
+  > .rg-popo {
+    box-shadow: 0px 1px 3px $rg-transparent-gray;
+    border-top: 1px solid $rg-very-transparent-gray;
+    &:after {
+      content: ' ';
+      height: $popover-arrow-size;
+      width: $popover-arrow-size;
+      position: absolute;
+      right: -8px;
+      background-color: white;
+      transform: rotate(45deg);
+      border-right: 1px solid $rg-very-transparent-gray;
+      border-top: 1px solid $rg-very-transparent-gray;
+    }
+  }
+}
+/* fonctionne avec une $popover-height définie */
+.rg-popo-left {
+  top: calc(50% - #{$popover_height}/2);
+  > .rg-popo {
+    height: $popover_height;
+    &:after {
+      top: calc(50% - #{$popover-arrow-size}/2);
+    }
+  }
+}
+/* fonctionne quelle que soit la height */
+.rg-popo-left-top {
+  bottom: -5px;
+  > .rg-popo {
+    &:after {
+      bottom: 10px;
+    }
+  }
+}
+/* fonctionne quelle que soit la height */
+.rg-popo-left-bottom {
+  top: -5px;
+  > .rg-popo {
+    &:after {
+      right: -8px;
+    }
+  }
+}
+.rg-popo-right, .rg-popo-right-top, .rg-popo-right-bottom {
+  position: absolute;
+  left: calc(90% + #{$popover-arrow-size}/2);
+  > .rg-popo {
+    box-shadow: 0px 1px 3px $rg-transparent-gray;
+    border-top: 1px solid $rg-very-transparent-gray;
+    &:after {
+      content: ' ';
+      height: $popover-arrow-size;
+      width: $popover-arrow-size;
+      position: absolute;
+      left: -8px;
+      background-color: white;
+      transform: rotate(45deg);
+      border-left: 1px solid $rg-very-transparent-gray;
+      border-bottom: 1px solid $rg-very-transparent-gray;
+    }
+  }
+}
+/* fonctionne avec une $popover-height définie */
+.rg-popo-right {
+  top: calc(50% - #{$popover_height}/2);
+  > .rg-popo {
+    height: $popover_height;
+    &:after {
+      top: calc(50% - #{$popover-arrow-size}/2);
+    }
+  }
+}
+/* fonctionne quelle que soit la height */
+.rg-popo-right-top {
+  bottom: -5px;
+  > .rg-popo {
+    &:after {
+      bottom: 10px;
+    }
+  }
+}
+/* fonctionne quelle que soit la height */
+.rg-popo-right-bottom {
+  top: -5px;
+  > .rg-popo {
+    &:after {
+      top: 10px;
+    }
+  }
+}
+
+// /* class gérant la taille et l'apparence du popover (sauf la flèche et l'ombre) */
+// .rg-popover {
+//   background-color: white;
+//   padding: 10px;
+//   z-index: 500;
+//   position: absolute;
+// }
+// /* classes gérant le positionnement du popover et de sa flèche, ainsi que les ombres */
+// .rg-popover-bottom {
+//   top: 30px;
+//   right: 95px;
+//   position: relative;
+//   box-shadow: 0px 1px 3px $rg-transparent-gray;
+//   border-top: 1px solid $rg-very-transparent-gray;
+//   &:before {
+//     content: ' ';
+//     height: $popover-arrow-size;
+//     width: $popover-arrow-size;
+//     position: absolute;
+//     top: -8px;
+//     background-color: white;
+//     transform: rotate(45deg);
+//     border-left: 1px solid $rg-very-transparent-gray;
+//     border-top: 1px solid $rg-very-transparent-gray;
+//   }
+// }
+// .rg-popover-top {
+//   bottom: 30px;
+//   left: -95px;
+//   box-shadow: 0px -1px 3px $rg-transparent-gray;
+//   border-bottom: 1px solid $rg-very-transparent-gray;
+//   &:after {
+//     content: ' ';
+//     height: $popover-arrow-size;
+//     width: $popover-arrow-size;
+//     position: absolute;
+//     bottom: -8px;
+//     background-color: white;
+//     transform: rotate(45deg);
+//     border-right: 1px solid $rg-very-transparent-gray;
+//     border-bottom: 1px solid $rg-very-transparent-gray;
+//   }
+// }
+// .rg-popover-left {
+//   left: 30px;
+//   bottom: -90px;
+//   box-shadow: 1px 0px 3px $rg-transparent-gray;
+//   border-left: 1px solid $rg-very-transparent-gray;
+//   &:after {
+//     content: ' ';
+//     height: $popover-arrow-size;
+//     width: $popover-arrow-size;
+//     position: absolute;
+//     top: 90px;
+//     left: -8px;
+//     background-color: white;
+//     transform: rotate(45deg);
+//     border-left: 1px solid $rg-very-transparent-gray;
+//     border-bottom: 1px solid $rg-very-transparent-gray;
+//   }
+// }
+// .rg-popover-right {
+//   right: 30px;
+//   bottom: -90px;
+//   box-shadow: -1px 0px 3px $rg-transparent-gray;
+//   border-right: 1px solid $rg-very-transparent-gray;
+//   &:after {
+//     content: ' ';
+//     height: $popover-arrow-size;
+//     width: $popover-arrow-size;
+//     position: absolute;
+//     top: 90px;
+//     right: -8px;
+//     background-color: white;
+//     transform: rotate(45deg);
+//     border-right: 1px solid $rg-very-transparent-gray;
+//     border-top: 1px solid $rg-very-transparent-gray;
+//   }
+// }
+
+

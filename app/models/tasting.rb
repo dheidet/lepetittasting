@@ -73,11 +73,15 @@ class Tasting < ApplicationRecord
     end
     unless palate_finish.nil?
       ponderation += 20
-      general_mark += palate_finish
+      if palate_finish <=10
+        general_mark += palate_finish*2
+      else
+        general_mark += 20
+      end
     end
     unless balance.nil?
       ponderation += 25
-      general_mark += balance*6/5
+      general_mark += balance/2*2.5
     end
     if general_mark == 0
       complement = " note"

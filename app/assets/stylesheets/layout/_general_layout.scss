@@ -5,14 +5,23 @@ body {
 // wrappers :
 .page-content-wrapper {
   min-height: 70vh;
+  margin-bottom: 10px;
 }
 .wrapper {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .wrapper-lightyellow {
   @extend .wrapper;
   background-color: $rg-lightyellow;
+}
+.wrapper-red {
+  @extend .wrapper;
+  background-color: $rg-red;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 // les titres :
