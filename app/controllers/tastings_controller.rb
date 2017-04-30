@@ -15,6 +15,7 @@ class TastingsController < ApplicationController
     @wine = Wine.find(params[:wine_id])
     @tasting = @wine.tastings.new(tasting_params)
     @tasting.user = current_user
+    # @tasting.balance = params
     @submit_label = "Ajouter une dégustation"
     authorize @tasting
     if @tasting.save

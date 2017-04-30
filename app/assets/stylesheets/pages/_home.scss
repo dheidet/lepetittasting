@@ -78,6 +78,19 @@
   }
 }
 
+.flexgrid-item.rg-btn {
+  flex: 0 0 auto;
+  padding: 5px 15px;
+  margin: 0;
+  font-size: 14px;
+  position: relative;
+  z-index: 20;
+  @media(max-width: 400px) {
+    max-width: 125px;
+    line-height: 15px;
+  }
+}
+
 #home-acs-section, #home-caviste-section {
   .flexgrid-flexbox {
     justify-content: center;

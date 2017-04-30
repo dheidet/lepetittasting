@@ -67,18 +67,18 @@ class EstatesController < ApplicationController
     params.require(:estate).permit(
         :id,
         :name,
-        :mark,
         :description,
+        :mark,
         :user_id,
-        wines_attributes: [:id, :name, :label, :alcohol, :vintage, :grape_variety, :color,
-        :style, :mark, :description, :agricultural_mode, :sulfite, :price_cents,
-        :estate_id, :user_id, :photo, :photo_cache, :_destroy,
-        tastings_attributes: [
-          :eye_color, :nose_condition, :nose_intensity,
-          :nose_development, :nose_quality, :palate_sweetness, :palate_acidity,
-          :palate_tanin, :palate_alcohol, :palate_body, :flavour_intensity,
-          :palate_finish, :palate_quality, :readiness, :balance, :description,
-          :wine_id, :user_id, :_destroy
+        wines_attributes: [:id, :photo, :photo_cache, :color, :alcohol, :agricultural_mode,
+          :sulfites, :price_cents, :style, :grape_variety, :name, :label, :vintage,
+          :description, :mark, :estate_id, :user_id, :_destroy,
+          tastings_attributes: [
+            :nose_quality, :palate_finish, :palate_quality, :readiness, :balance,
+            :description, :eye_color, :eye_intensity, :nose_condition, :nose_intensity,
+            :nose_development, :palate_sweetness, :palate_acidity, :palate_tanin,
+            :palate_alcohol, :palate_body, :flavour_intensity, :wine_id, :user_id,
+            :_destroy
           ]])
   end
 end

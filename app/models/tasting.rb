@@ -88,6 +88,6 @@ class Tasting < ApplicationRecord
     else
       general_mark = 100*general_mark/ponderation
     end
-    return general_mark.to_s + complement
+    return general_mark.to_i.to_s + complement
   end
 end

@@ -1,0 +1,7 @@
+<fieldset>
+  <%= f.input :wine_price, label: "Prix du vin" %>
+  <%= f.input :transport_price, label: "Prix du transport" %>
+  <%= f.input :conditionning, label: "Conditionnement" %>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "Remove", "#", class: "remove_fields" %>
+</fieldset>

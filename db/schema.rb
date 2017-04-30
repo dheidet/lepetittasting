@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170330080555) do
+ActiveRecord::Schema.define(version: 20170410213631) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "competition_price_stages", force: :cascade do |t|
+    t.float    "wine_price"
+    t.float    "transport_price"
+    t.integer  "conditionning"
+    t.integer  "competition_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["competition_id"], name: "index_competition_price_stages_on_competition_id", using: :btree
+  end
+
+  create_table "competitions", force: :cascade do |t|
+    t.integer  "wine_id"
+    t.integer  "contenance"
+    t.string   "competitor"
+    t.string   "link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["wine_id"], name: "index_competitions_on_wine_id", using: :btree
+  end
 
   create_table "estates", force: :cascade do |t|
     t.string   "name"
@@ -100,6 +120,8 @@ ActiveRecord::Schema.define(version: 20170330080555) do
     t.index ["user_id"], name: "index_wines_on_user_id", using: :btree
   end
 
+  add_foreign_key "competition_price_stages", "competitions"
+  add_foreign_key "competitions", "wines"
   add_foreign_key "estates", "users"
   add_foreign_key "tastings", "users"
   add_foreign_key "tastings", "wines"

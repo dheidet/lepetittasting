@@ -39,6 +39,16 @@
 .sale-card-picture {
   height: 200px;
   position: relative;
+  .general_mark {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    line-height: 200px;
+    color: white;
+    font-size: 50px;
+  }
   .sale-card-category {
     position: absolute;
     top: 10px;

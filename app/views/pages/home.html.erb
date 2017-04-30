@@ -37,14 +37,13 @@
               <div class="sale-card-picture">
                 <% if wine.photo.url != nil %>
                   <%= image_tag wine.photo.url(crop: :fill) %>
+                  <% unless wine.tastings == [] || wine.tastings.last.general_mark.nil? %>
+                    <div class="general_mark"><%= wine.tastings.last.general_mark %></div>
+                  <% end %>
                 <% else %>
                   <%= image_tag "wine-bottle.jpeg" %>
                 <% end %>
-                <% unless wine.tastings == [] || wine.tastings.last.general_mark.nil? %>
-                  <div><%= wine.tastings.last.general_mark %></div>
-                <% end %>
               </div>
-
               <div class="sale-card-etiquette text-center">
                 <div>
                   <div class="sale-card-estate">
@@ -62,6 +61,7 @@
                 </div>
               </div>
             </div>
+            <%= link_to 'Ajouter compétition', new_competition_path(wine: wine), class: "rg-btn rg-btn-success" %>
           </div>
         <% end %>
       </div>

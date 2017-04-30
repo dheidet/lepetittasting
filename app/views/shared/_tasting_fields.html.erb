@@ -1,25 +1,51 @@
 <fieldset>
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <h2>L'oeil</h2>
-  <%= f.input :eye_color, label: "Couleur", collection: ["Jaune vert", "Jaune citron", "Jaune or", "Violacé", "Rubis", "Grenat"] %>
-  <%= f.input :eye_intensity, label: "Intensité", collection: 1..3 %>
-  <h2>Le nez</h2>
-  <%= f.input :nose_condition, label: "Conditions", collection: ["Nettes", "Défaut?"] %>
-  <%= f.input :nose_intensity, label: "Intensité", collection: 1..5 %>
-  <%= f.input :nose_development, label: "Dévelopement", collection: ["jeune", "en cours d’évolution", "totalement évolué", "fatigué/trop vieux"] %>
-  <%= f.input :nose_quality, label: "Qualité du nez", collection: 0..20 %>
-  <h2>Le palais</h2>
-  <%= f.input :palate_sweetness, label: "Douceur", collection: 0..5 %>
-  <%= f.input :palate_acidity, label: "Acidité", collection: 1..5%>
-  <%= f.input :palate_tanin, label: "Tanins", collection: 1..5 %>
-  <%= f.input :palate_alcohol, label: "Alcool", collection: 1..5 %>
-  <%= f.input :palate_body, label: "Corps", collection: 1..5 %>
-  <%= f.input :flavour_intensity, label: "Intensité des arômes", collection: 1..5 %>
-  <%= f.input :palate_finish, label: "Longueur en secondes", collection: 0..20 %>
-  <%= f.input :palate_quality, label: "Qualité du palais", collection: 0..20 %>
-  <h2>Ensemble de la dégustation</h2>
-  <%= f.input :readiness, label: "Le vin, est-il prêt ?", collection: ["Trop jeune", "Peut être bu maintenant, mais potentiel de vieillissement", "A boire maintenant, ne gagnerait rien à vieillir", "Trop vieux"] %>
-  <%= f.input :balance, label: "Notez l'équilibre du vin ?", collection: 0..20 %>
-  <%= f.input :description, label: "Description", as: :text %>
+  <div class="long-tasting-field hidden">
+    <h2>L'oeil</h2>
+    <%= f.input :eye_color, label: "Couleur", collection: ["Jaune vert", "Jaune citron", "Jaune or", "Violacé", "Rubis", "Grenat"] %>
+    <%= f.input :eye_intensity, label: "Intensité", collection: 1..3 %>
+    <h2>Le nez</h2>
+    <%= f.input :nose_condition, label: "Conditions", collection: ["Nettes", "Défaut?"] %>
+    <%= f.input :nose_intensity, label: "Intensité", collection: 1..5 %>
+    <%= f.input :nose_development, label: "Dévelopement", collection: ["jeune", "en cours d’évolution", "totalement évolué", "fatigué/trop vieux"] %>
+  </div>
+  <div class="short-tasting-field">
+    <p>Notez la qualité du palais ?</p>
+    <%= render 'shared/stars' %>
+    <%= f.hidden_field :nose_quality, class: "hiddenRating" %>
+    <%#= f.input :nose_quality, label: "Qualité du nez", collection: 0..20 %>
+  </div>
+  <div class="long-tasting-field hidden">
+    <h2>Le palais</h2>
+    <%= f.input :palate_sweetness, label: "Douceur", collection: 0..5 %>
+    <%= f.input :palate_acidity, label: "Acidité", collection: 1..5%>
+    <%= f.input :palate_tanin, label: "Tanins", collection: 1..5 %>
+    <%= f.input :palate_alcohol, label: "Alcool", collection: 1..5 %>
+    <%= f.input :palate_body, label: "Corps", collection: 1..5 %>
+    <%= f.input :flavour_intensity, label: "Intensité des arômes", collection: 1..5 %>
+  </div>
+  <div class="short-tasting-field">
+    <div class="palate-finish text-center">
+      <ul id="countdown">
+        <li id="seconds">
+          <div class="number">0</div>
+          <div class="label">Seconds</div>
+        </li>
+      </ul>
+    <%= f.hidden_field :palate_finish, class: "hiddenTime" %>
+    </div>
+    <%#= f.input :palate_finish, label: "Longueur en secondes", collection: 0..20 %>
+    <%#= f.input :palate_quality, label: "Qualité du palais", collection: 0..20 %>
+    <p>Notez la qualité du palais ?</p>
+    <%= render 'shared/stars' %>
+    <%= f.hidden_field :palate_quality, class: "hiddenRating" %>
+    <h2>Ensemble de la dégustation</h2>
+    <%= f.input :readiness, label: "Le vin, est-il prêt ?", collection: ["Trop jeune", "Peut être bu maintenant, mais potentiel de vieillissement", "A boire maintenant, ne gagnerait rien à vieillir", "Trop vieux"] %>
+    <p>Notez l'équilibre du vin ?</p>
+    <%= render 'shared/stars' %>
+    <%= f.hidden_field :balance, class: "hiddenRating" %>
+    <%#= f.input :balance, label: "Notez l'équilibre du vin ?", collection: 0..20 %>
+    <%= f.input :description, label: "Description", as: :text %>
+  </div>
 </br>
 </fieldset>

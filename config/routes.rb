@@ -13,10 +13,12 @@ Rails.application.routes.draw do
   # get 'wines/destroy'
 
   root to: 'pages#home'
-
+  resources :competitions, only: [:new, :create]
   resources :estates
   resources :wines do
-    resources :tastings
+    resources :tastings do
+      resources :tasting_aromas
+    end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
