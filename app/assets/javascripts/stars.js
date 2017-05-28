@@ -27,8 +27,8 @@ $(function() {
     $(this).closest('.rating').data('vote', $(this).data('value'));
     // calculateAverage()
     var hidden = $(this).data('value');
-    $('.hiddenRating').val(hidden);
-    console.log(hidden);
+    $(this).closest('.rating').next('.hiddenRating').val(hidden);
+    console.log($(this).closest('.rating').next('.hiddenRating').val());
 
   })
 
@@ -38,7 +38,7 @@ $(function() {
     }
     $(this).closest('.rating').find('.js-score').text($(this).data('value'));
     var hidden = $(this).data('value');
-    $('.hiddenRating').val(hidden);
+    $(this).closest('.rating').next('.hiddenRating').val(hidden);
     // $(this).find('js-average').text(parseInt($(this).data('value')));
 
     $(this).closest('.rating').data('vote', $(this).data('value'));

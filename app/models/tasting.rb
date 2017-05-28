@@ -22,7 +22,7 @@ class Tasting < ApplicationRecord
     if mark.nil?
       return nil
     else
-      rating = mark/4
+      rating = mark
       full_stars = rating.to_i
       if rating - rating.to_i > 0.74
         full_stars += 1
@@ -65,11 +65,11 @@ class Tasting < ApplicationRecord
     end
     unless nose_quality.nil?
       ponderation += 15
-      general_mark += nose_quality/4*3
+      general_mark += nose_quality*3
     end
     unless palate_quality.nil?
       ponderation += 40
-      general_mark += palate_quality*2
+      general_mark += palate_quality*8
     end
     unless palate_finish.nil?
       ponderation += 20
@@ -81,7 +81,7 @@ class Tasting < ApplicationRecord
     end
     unless balance.nil?
       ponderation += 25
-      general_mark += balance/2*2.5
+      general_mark += balance*5
     end
     if general_mark == 0
       complement = " note"

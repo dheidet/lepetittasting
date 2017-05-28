@@ -10,7 +10,7 @@
     <%= f.input :nose_development, label: "Dévelopement", collection: ["jeune", "en cours d’évolution", "totalement évolué", "fatigué/trop vieux"] %>
   </div>
   <div class="short-tasting-field">
-    <p>Notez la qualité du palais ?</p>
+    <p>Notez la qualité du nez ?</p>
     <%= render 'shared/stars' %>
     <%= f.hidden_field :nose_quality, class: "hiddenRating" %>
     <%#= f.input :nose_quality, label: "Qualité du nez", collection: 0..20 %>
@@ -25,6 +25,7 @@
     <%= f.input :flavour_intensity, label: "Intensité des arômes", collection: 1..5 %>
   </div>
   <div class="short-tasting-field">
+  <p>Mesurez la longueur ?</p>
     <div class="palate-finish text-center">
       <ul id="countdown">
         <li id="seconds">

@@ -15,6 +15,10 @@ class WinesController < ApplicationController
   def create
     @wine = Wine.new(wine_params)
     @wine.user = current_user
+    @nose = @wine.tastings.last.nose_quality = params[:wine][:tastings_attributes]["0"]["nose_quality"].to_f
+    @palate = @wine.tastings.last.palate_quality = params[:wine][:tastings_attributes]["0"]["palate_quality"].to_f
+    @balance = @wine.tastings.last.balance = params[:wine][:tastings_attributes]["0"]["balance"].to_f
+    @wine.save
     @submit_label = "Ajouter ce vin"
     @submit_label_2 = "Ajouter une dégustation"
     authorize @wine

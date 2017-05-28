@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170410213631) do
+ActiveRecord::Schema.define(version: 20170526155322) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20170410213631) do
     t.string   "nose_condition"
     t.integer  "nose_intensity"
     t.string   "nose_development"
-    t.integer  "nose_quality"
+    t.float    "nose_quality"
     t.integer  "palate_sweetness"
     t.integer  "palate_acidity"
     t.integer  "palate_tanin"
@@ -59,9 +59,9 @@ ActiveRecord::Schema.define(version: 20170410213631) do
     t.integer  "palate_body"
     t.integer  "flavour_intensity"
     t.integer  "palate_finish"
-    t.integer  "palate_quality"
+    t.float    "palate_quality"
     t.string   "readiness"
-    t.integer  "balance"
+    t.float    "balance"
     t.string   "description"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
