@@ -1,48 +1,79 @@
 <div class="wrapper">
   <div class="flexgrid-container text-center">
     <h2 class="text-center"><%= @estate.name %></h2>
-    <p><%= link_to 'Ajouter un vin', new_wine_path(estate: @estate), class: "rg-btn rg-btn-success" %></p>
     <div class="flexgrid-flexbox">
-      <% @wines.each do |wine| %>
-        <%= link_to wine_path(wine) do %>
-          <div class="flexgrid-item-xs1-xm1-sm1-md2">
-            <div class="achat-card-small card-shadow">
-              <div class="acs-img">
-                <% if wine.photo.url != nil %>
-                  <%= image_tag wine.photo.url(:standard) %>
-                <% else %>
-                  <%= image_tag "wine-bottle.jpeg" %>
+      <div class="wrapper wrapper-lightyellow" id="home-acs-section">
+        <div class="flexgrid-container text-center">
+          <!-- <div class="home-card"> -->
+          <h2 class="text-center">Liste des Vins</h2>
+          <div class="flexgrid-flexbox">
+            <div class="flexgrid-item">
+              <div class="sale-card card-shadow">
+                <!-- change method to be able to add domain or select when creating a wine-->
+                <%= link_to new_wine_path(estate: @estate) do %>
+                  <div class="sale-link"></div>
                 <% end %>
-              </div>
-              <div class="acs-description text-center">
-                <div class="acs-wine-name"><%= wine.name %></div>
-                <div class="acs-appellation"><%= wine.label %></div>
-                <div class="acs-wine-name"><%= wine.vintage.year %></div>
-                <div class="acs-wine-name"><%= wine.color %></div>
-                <div class="acs-wine-name"><%= wine.description %></div>
-                <% @tastings = wine.tastings %>
-                <% @tastings.each do |tasting| %>
-                  <% if tasting.nose_quality != nil %>
-                    <div class="acs-appellation">nez : <%= tasting.nose_quality %></div>
-                  <% end %>
-                  <% if tasting.palate_finish != nil %>
-                    <div class="acs-appellation">finale : <%= tasting.palate_finish %></div>
-                  <% end %>
-                  <% if tasting.palate_quality != nil %>
-                    <div class="acs-appellation">palais : <%= tasting.palate_quality %></div>
-                  <% end %>
-                  <% if tasting.balance != nil %>
-                    <div class="acs-appellation">équilibre : <%= tasting.balance %></div>
-                  <% end %>
-                  <% if tasting.description != nil %>
-                    <div class="acs-appellation">note : <%= tasting.description %></div>
-                  <% end %>
-                <% end %>
+                <div class="sale-card-etiquette text-center">
+                  <div>
+                    <div class="sale-card-estate">
+                      <%= image_tag "plus_icon.png" %>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
+            <% @wines.each do |wine| %>
+              <div class="flexgrid-item">
+                <div class="sale-card card-shadow">
+                  <%= link_to wine_path(wine) do %>
+                    <div class="sale-link"></div>
+                  <% end %>
+                  <div class="sale-card-picture">
+                    <% if wine.photo.url != nil %>
+                      <%= image_tag wine.photo.url(crop: :fill) %>
+                      <% unless wine.tastings == [] || wine.tastings.last.general_mark.nil? %>
+                        <div class="general_mark"><%= wine.tastings.last.general_mark %></div>
+                      <% end %>
+                    <% else %>
+                      <%= image_tag "wine-bottle.jpeg" %>
+                    <% end %>
+                    </div>
+                    <div class="sale-card-etiquette text-center">
+                      <div>
+                        <div class="sale-card-estate">
+                          <%= wine.estate.name %>
+                        </div>
+                        <div class="sale-card-cuvee">
+                          <%= wine.name %>
+                        </div>
+                        <div class="sale-card-vintage">
+                          <%= wine.vintage.year %>
+                        </div>
+                        <div class="sale-card-label">
+                          <%= wine.label %>
+                        </div>
+                      </div>
+                    </div>
+                  <div class="sale-card-price-cart">
+                    <div class="sale-card-price text-center">
+                      <div><%= wine.competitions.count %></div>
+                      <div>Compétiteurs</div>
+                    </div>
+                    <%= link_to 'Ajouter compétition', new_competition_path(wine: wine), class: "rg-btn rg-btn-success" %>
+                  </div>
+                  <div class="sale-card-price-cart">
+                    <div class="sale-card-price text-center">
+                      <div><%= wine.tastings.count %></div>
+                      <div>Dégustations</div>
+                    </div>
+                    <%= link_to 'Ajouter dégustation', new_wine_tasting_path(wine_id: wine.id), class: "rg-btn rg-btn-success" %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
           </div>
-        <% end %>
-      <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

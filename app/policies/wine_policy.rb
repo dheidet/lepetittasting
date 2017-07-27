@@ -1,8 +1,14 @@
 class WinePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(user: user)
     end
+  end
+  def wine_to_taste?
+    true
+  end
+  def wine_tasted?
+    true
   end
   def create?
     true

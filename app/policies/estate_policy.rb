@@ -1,11 +1,11 @@
 class EstatePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(user: user)
     end
   end
   def index?
-    true
+    user_is_owner_or_admin?
   end
   def create?
     true

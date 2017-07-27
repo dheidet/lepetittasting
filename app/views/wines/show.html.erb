@@ -4,6 +4,9 @@
       <div class="flexgrid-item" id="show-id-card">
         <%= render "shared/show_id_card", wine: @wine %>
       </div>
+      <div class="flexgrid-item" id="show-id-card">
+        <%= render "shared/show_competition_card", wine: @wine %>
+      </div>
       <% if @wine.tastings != [] %>
         <% @wine.tastings.each do |tasting| %>
           <!-- <div class="flexgrid-item" id="show-tasting-card">

@@ -1,0 +1,52 @@
+<% @wines.each do |wine| %>
+  <div class="flexgrid-item">
+    <div class="sale-card card-shadow">
+      <%= link_to wine_path(wine) do %>
+        <div class="sale-link"></div>
+      <% end %>
+      <div class="sale-card-picture">
+        <% if wine.photo.url != nil %>
+          <%= image_tag wine.photo.url(crop: :fill) %>
+          <% unless wine.tastings == [] || wine.tastings.first.general_mark.nil? %>
+            <div class="general_mark"><%= wine.tastings.first.general_mark %></div>
+          <% end %>
+        <% else %>
+          <%= image_tag "wine-bottle.jpeg" %>
+          <% unless wine.tastings == [] || wine.tastings.first.general_mark.nil? %>
+            <div class="general_mark"><%= wine.tastings.first.general_mark %></div>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="sale-card-etiquette text-center">
+        <div>
+          <div class="sale-card-estate">
+            <%= wine.estate.name %>
+          </div>
+          <div class="sale-card-cuvee">
+            <%= wine.name %>
+          </div>
+          <div class="sale-card-vintage">
+            <%= wine.vintage.year %>
+          </div>
+          <div class="sale-card-label">
+            <%= wine.label %>
+          </div>
+        </div>
+      </div>
+    <div class="sale-card-price-cart">
+      <div class="sale-card-price text-center">
+        <div><%= wine.competitions.count %></div>
+        <div>Compétiteurs</div>
+      </div>
+      <%= link_to 'Ajouter compétition', new_competition_path(wine: wine), class: "rg-btn rg-btn-success" %>
+    </div>
+    <div class="sale-card-price-cart">
+      <div class="sale-card-price text-center">
+        <div><%= wine.tastings.count %></div>
+        <div>Dégustations</div>
+      </div>
+      <%= link_to 'Ajouter dégustation', new_wine_tasting_path(wine_id: wine.id), class: "rg-btn rg-btn-success" %>
+    </div>
+  </div>
+    </div>
+<% end %>

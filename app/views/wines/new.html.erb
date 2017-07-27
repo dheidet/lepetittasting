@@ -1,10 +1,10 @@
 <div class="container">
-  <%= render 'shared/radio_button_choice' %>
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
       <%= simple_form_for @wine do |f| %>
         <fieldset>
           <%= f.error_notification %>
+          <%= f.hidden_field :estate, value: @estate %>
           <h1 class="text-center">Le Vin</h1>
           <%= render 'shared/wine_fields', f: f %>
           <div class="text-center"><span class="flex padded-top padded-bot"><%= f.button :submit, "#{@submit_label}", class: "btn btn-primary" %></span></div>

@@ -1,69 +1,65 @@
 <div class="wrapper wrapper-lightyellow" id="home-acs-section">
   <div class="flexgrid-container text-center">
-    <p><%= link_to 'Ajouter un domaine/vin/dégustation', new_estate_path, class: "rg-btn rg-btn-success" %></p>
-    <div class="home-card" id="estate">
-      <h2 class="text-center">Les Domaines</h2>
+    <div class="home-card">
       <div class="flexgrid-flexbox">
-        <% @estates.each do |estate| %>
-          <div class="flexgrid-item">
-            <div class="sale-card card-shadow">
-              <%= link_to estate_path(estate) do %>
-                <div class="sale-link"></div>
-              <% end %>
-              <div class="sale-card-etiquette text-center">
-                <div>
-                  <div class="sale-card-estate">
-                    <%= estate.name %>
-                  </div>
-                  <div class="sale-card-cuvee">
-                    <%= estate.description %>
-                  </div>
+        <div class="flexgrid-item">
+          <div class="sale-card card-shadow">
+            <%= link_to estates_path do %>
+              <div class="sale-link"></div>
+            <% end %>
+            <div class="sale-card-etiquette text-center">
+              <div>
+                <div class="sale-card-estate">
+                  Liste de mes domaines
                 </div>
               </div>
             </div>
           </div>
-        <% end %>
+        </div>
       </div>
-    </div>
-    <div class="home-card hidden" id="wine">
-      <h2 class="text-center">Les Vins</h2>
       <div class="flexgrid-flexbox">
-        <% @wines.each do |wine| %>
-          <div class="flexgrid-item">
-            <div class="sale-card card-shadow">
-              <%= link_to wine_path(wine) do %>
-                <div class="sale-link"></div>
-              <% end %>
-              <div class="sale-card-picture">
-                <% if wine.photo.url != nil %>
-                  <%= image_tag wine.photo.url(crop: :fill) %>
-                  <% unless wine.tastings == [] || wine.tastings.last.general_mark.nil? %>
-                    <div class="general_mark"><%= wine.tastings.last.general_mark %></div>
-                  <% end %>
-                <% else %>
-                  <%= image_tag "wine-bottle.jpeg" %>
-                <% end %>
-              </div>
-              <div class="sale-card-etiquette text-center">
-                <div>
-                  <div class="sale-card-estate">
-                    <%= wine.estate.name %>
-                  </div>
-                  <div class="sale-card-cuvee">
-                    <%= wine.name %>
-                  </div>
-                  <div class="sale-card-vintage">
-                    <%= wine.vintage.year %>
-                  </div>
-                  <div class="sale-card-label">
-                    <%= wine.label %>
-                  </div>
+        <div class="flexgrid-item">
+          <div class="sale-card card-shadow">
+            <%= link_to wines_path do %>
+              <div class="sale-link"></div>
+            <% end %>
+            <div class="sale-card-etiquette text-center">
+              <div>
+                <div class="sale-card-estate">
+                  Liste des vins
                 </div>
               </div>
             </div>
-            <%= link_to 'Ajouter compétition', new_competition_path(wine: wine), class: "rg-btn rg-btn-success" %>
           </div>
-        <% end %>
+        </div>
+        <div class="flexgrid-item">
+          <div class="sale-card card-shadow">
+            <%= link_to wine_tasted_path do %>
+              <div class="sale-link"></div>
+            <% end %>
+            <div class="sale-card-etiquette text-center">
+              <div>
+                <div class="sale-card-estate">
+                  Classement des vins dégustés
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flexgrid-item">
+          <div class="sale-card card-shadow">
+            <%= link_to wine_to_taste_path do %>
+              <div class="sale-link"></div>
+            <% end %>
+            <div class="sale-card-etiquette text-center">
+              <div>
+                <div class="sale-card-estate">
+                  Vins à déguster
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

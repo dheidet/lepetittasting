@@ -5,6 +5,7 @@
   <%= f.input :photo %>
   <%= f.input :photo_cache, as: :hidden %>
   <%= f.input :color, label: "Couleur", collection: ["Blanc", "Rosé", "Rouge"] %>
+  <div class="long-tasting-field hidden">
   <%= f.input :alcohol, label: "Alcool" %>
   <%= f.input :agricultural_mode, label: "Méthode agricole", collection: ["Conventionnelle", "Raisonnée","HVE - Haute Valeur Environnementale", "Bio", "Biodynamique"] %>
   <%= f.input :sulfites, label: "Sulfites" %>
@@ -16,4 +17,10 @@
   <%= f.input :vintage, label: "Millésime", start_year: Date.today.year - 90,
     end_year: Date.today.year, discard_day: true, discard_month: true %>
   <%= f.input :description, as: :text, label: "Description" %>
+  </div>
+  <h1 class="text-center">La Dégustation</h1>
+  <%= f.simple_fields_for :tastings do |tasting| %>
+    <%= render 'shared/tasting_fields', f: tasting %>
+  <% end %>
+</br>
 </fieldset>

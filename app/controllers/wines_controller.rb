@@ -14,17 +14,16 @@ class WinesController < ApplicationController
 
   def create
     @wine = Wine.new(wine_params)
+    @estate = params[:wine][:estate]
+    @wine.estate = Estate.find(@estate)
     @wine.user = current_user
-    @nose = @wine.tastings.last.nose_quality = params[:wine][:tastings_attributes]["0"]["nose_quality"].to_f
-    @palate = @wine.tastings.last.palate_quality = params[:wine][:tastings_attributes]["0"]["palate_quality"].to_f
-    @balance = @wine.tastings.last.balance = params[:wine][:tastings_attributes]["0"]["balance"].to_f
     @wine.save
     @submit_label = "Ajouter ce vin"
     @submit_label_2 = "Ajouter une dégustation"
     authorize @wine
     if @wine.save
       flash[:notice] = "Vin créé"
-      redirect_to estate_path(@wine.estate)
+      redirect_to estate_path(@estate)
     else
       flash[:alert] = "Ça a planté, mec!"
       render :new
@@ -33,7 +32,22 @@ class WinesController < ApplicationController
 
   def show
     @wine = Wine.find(params[:id])
+    @competitions = @wine.competitions
     authorize @wine
+  end
+
+  def wine_to_taste
+    @all_wines = policy_scope(Wine)
+    @wines = @all_wines.select{|wine| wine.tastings.count == 0}.flatten
+    authorize @all_wines
+  end
+
+  def wine_tasted
+    @all_wines = policy_scope(Wine)
+    @wines = @all_wines.select{|wine| wine.tastings.count != 0}.flatten
+    @wines = @wines.sort_by{|e| e.tastings.first.general_mark}.reverse
+    authorize @all_wines
+
   end
 
   def edit

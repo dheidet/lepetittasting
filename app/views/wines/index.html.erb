@@ -1,20 +1,25 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
-      <table>
-        <thead>
-          <tr>
-            <th>Cuvée</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @wines.each do |wine| %>
-            <%= render "shared/show_id_card", wine: wine %>
-          <% end %>
-        </tbody>
-      </table>
-      <p><%= link_to 'Ajouter un vin', new_wine_path %></p>
+<div class="wrapper wrapper-lightyellow" id="home-acs-section">
+  <div class="flexgrid-container text-center">
+    <div class="home-card">
+      <h2 class="text-center">Liste des Vins</h2>
+      <div class="flexgrid-flexbox">
+        <div class="flexgrid-item">
+          <div class="sale-card card-shadow">
+            <!-- change method to be able to add domain or select when creating a wine-->
+            <%= link_to new_estate_path do %>
+              <div class="sale-link"></div>
+            <% end %>
+            <div class="sale-card-etiquette text-center">
+              <div>
+                <div class="sale-card-estate">
+                  <%= image_tag "plus_icon.png" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%= render 'shared/wine_show', wine: @wine %>
+      </div>
     </div>
   </div>
 </div>

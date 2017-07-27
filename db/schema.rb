@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170526155322) do
+ActiveRecord::Schema.define(version: 20170727114529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "competition_price_stages", force: :cascade do |t|
-    t.float    "wine_price"
-    t.float    "transport_price"
+    t.float    "wine_price",      default: 0.0
+    t.float    "transport_price", default: 0.0
     t.integer  "conditionning"
     t.integer  "competition_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.index ["competition_id"], name: "index_competition_price_stages_on_competition_id", using: :btree
   end
 
