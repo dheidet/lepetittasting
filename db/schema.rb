@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170727114529) do
+ActiveRecord::Schema.define(version: 20170727150103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,10 +104,10 @@ ActiveRecord::Schema.define(version: 20170727114529) do
     t.date     "vintage"
     t.string   "grape_variety"
     t.string   "color"
-    t.integer  "mark"
+    t.integer  "mark",              default: 0
     t.string   "description"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.integer  "alcohol"
     t.string   "agricultural_mode"
     t.boolean  "available"

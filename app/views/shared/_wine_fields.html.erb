@@ -16,4 +16,5 @@
   <%= f.input :vintage, label: "Millésime", start_year: Date.today.year - 90,
     end_year: Date.today.year, discard_day: true, discard_month: true %>
   <%= f.input :description, as: :text, label: "Description" %>
+  <%= f.input :mark, label: "Note Presse" %>
 </fieldset>

@@ -9,11 +9,15 @@
           <%= image_tag wine.photo.url(crop: :fill) %>
           <% unless wine.tastings == [] || wine.tastings.first.general_mark.nil? %>
             <div class="general_mark"><%= wine.tastings.first.general_mark %></div>
+          <% else %>
+            <div class="general_mark"><%= wine.mark %></div>
           <% end %>
         <% else %>
           <%= image_tag "wine-bottle.jpeg" %>
           <% unless wine.tastings == [] || wine.tastings.first.general_mark.nil? %>
             <div class="general_mark"><%= wine.tastings.first.general_mark %></div>
+          <% else %>
+            <div class="general_mark"><%= wine.mark %></div>
           <% end %>
         <% end %>
       </div>

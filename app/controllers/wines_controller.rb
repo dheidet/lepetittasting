@@ -39,6 +39,7 @@ class WinesController < ApplicationController
   def wine_to_taste
     @all_wines = policy_scope(Wine)
     @wines = @all_wines.select{|wine| wine.tastings.count == 0}.flatten
+    @wines = @wines.sort_by{|e| e.mark}.reverse
     authorize @all_wines
   end
 
